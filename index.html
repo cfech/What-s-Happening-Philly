@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Event Location</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-dark justify-content-center">
+        <a class="navbar-brand">Navbar</a>
+      </nav>
+    <main class="container">
+        
+        <div class="row m-2 p-2">
+
+            <div class="col-2 searchBox">
+                <form class="row">
+
+                    <input type="text" id="event-search" class="col-7 offset-1 "><br>
+
+                    <!-- Button triggers new movie to be added -->
+                    <input id="add-city" type="submit" value="" class="col-1 searchButton" ß>
+                </form>
+            </div>
+
+            <div class="col-8 offset-1 weatherBox">
+               weather
+            </div>
+        </div>
+        <div class="row m-2">
+
+            <div class="col-6 m-2 mapBox" id="mapArea">
+
+               Map here 
+            </div>
+
+
+            <div class="col-4 offset-1 m-2 listBox">
+            list here Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo inventore omnis voluptatibus, consequuntur itaque quis. Asperiores quasi eum quidem sapiente nisi facilis adipisci, maiores eos repellendus accusantium ad harum dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, nemo explicabo nisi nobis quos eveniet non ducimus atque minima doloremque repellendus, quia, praesentium eius delectus in laudantium beatae neque! 
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('mapArea'), {
+          center: {lat: 39.952, lng: -75.165},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpaOyG5B6avKSY0v3Lbm1w0NtIuwhsNfE&callback=initMap"
+    async defer></script>
+
+
+
+
+    </main>
+
+    <footer>
+        some stuff
+    
+    </footer>
+    
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
