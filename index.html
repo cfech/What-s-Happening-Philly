@@ -12,54 +12,40 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-light bg-dark justify-content-center">
-        <a class="navbar-brand">What's Happening Today?</a>
-        <div class="row">
-            <div id="date"></div>
-        </div>
-    </nav>
     <main class="container">
-        <!-- Container element -->
-        <div class="parallax"></div>
+        <nav class="jumbotron justify-content-center" id="navBox">
+            <h1 class="display-4 text-center">What's Happening Today?</h1>
+            <div class="row">
+                <div class="col-sm-12 h1 text-center" id="date"></div>
+            </div>
+        </nav>
         <div class="row m-2 p-2">
-
             <div class="col-2 searchBox">
                 <form class="row">
-
                     <input type="text" id="event-search" class="col-7 offset-1 "><br>
-
                     <!-- Button triggers new movie to be added -->
                     <input id="add-city" type="submit" value="" class="col-1 searchButton" ß>
                 </form>
             </div>
-
-            <div class="col-8 offset-1 weatherBox" id="weatherBox">
-                weather
+            <div class="col-8 offset-1 weatherBox p-5">
+                <ul class="list-group list-group-horizontal" id="weatherBox"></ul>
             </div>
         </div>
         <div class="row m-2">
-
-            <div class="col-6 m-2 mapBox" id="mapArea">
-
+            <div class="col-6 m-2 mapBox mr-5" id="mapArea">
                 Map here
             </div>
-
-
-            <div class="col-4 offset-1 m-2 listBox">
-                <h5> list here</h5>
-                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo inventore omnis voluptatibus,
-                    consequuntur itaque quis. Asperiores quasi eum quidem sapiente nisi facilis adipisci, maiores eos
-                    repellendus accusantium ad harum dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit.
-                    Error, nemo explicabo nisi nobis quos eveniet non ducimus atque minima doloremque repellendus, quia,
-                    praesentium eius delectus in laudantium beatae neque!</p>
+            <div class="col-4 offset-1 ml-4 listBox">
+                <h2> Happenings</h2>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
             </div>
-
-
         </div>
-
-        </div>
+        <!-- Container element img lives here see CSS. do not move. -->
+        <div class="parallax"></div>
         <script>
             var map;
             function initMap() {
@@ -75,26 +61,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="javascript.js"></script>
-
     </main>
-
     <footer>
         some stuff
-
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>

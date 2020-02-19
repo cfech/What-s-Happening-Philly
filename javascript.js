@@ -8,31 +8,31 @@ $.ajax({
     method: "GET"
 }).then(function (response) {
 console.log("TCL: response", response)
- var weatherDiv = $("<div>")
+ var weatherDiv = $("<div>").addClass("list-group list-group-horizontal");
 
  var location = response.name
  console.log("TCL: location", location)
- var locationDiv = $("<div>").addClass("locationDiv")
+ var locationDiv = $("<text>").addClass("locationDiv list-group-item mr-2")
  locationDiv.text(location)
 
  var weatherCondition = response.weather[0].main
 console.log("TCL: weather", weatherCondition)
-var weatherConditionDiv = $("<div>").addClass("weatherCondition")
+var weatherConditionDiv = $("<text>").addClass("weatherCondition h3 mr-2")
 weatherConditionDiv.text("Condition :  " + weatherCondition)
 
 
 var tempKelvin = response.main.temp
 var tempF = (tempKelvin - 273.5) * 1.80 + 32
 console.log("TCL: tempF", tempF)
-var tempDiv = $("<div>").addClass("tempDiv")
+var tempDiv = $("<text>").addClass("tempDiv h3 mr-2")
 tempDiv.text("Temp: " + tempF.toFixed(2) + " °F")
 
 var humidity = response.main.humidity
 console.log("TCL: humidity", humidity)
-var humidityDiv = $("<div>").addClass("humidityDiv")
+var humidityDiv = $("<text>").addClass("humidityDiv h3 mr-2")
 humidityDiv.text("Humidity: "+ humidity + "%")
 
-weatherDiv.append(locationDiv, weatherConditionDiv, tempDiv, humidityDiv)
+weatherDiv.append(weatherConditionDiv, tempDiv, humidityDiv)
 $("#weatherBox").append(weatherDiv)
 
 
