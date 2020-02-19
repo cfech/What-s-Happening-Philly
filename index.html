@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Event Location</title>
 </head>
+
 <body>
+
     <nav class="navbar navbar-light bg-dark justify-content-center">
-        
-        
+        <a class="navbar-brand">What's Happening Today?</a>
         <div class="row">
-        <a class="navbar-brand">Navbar</a>
-            </div>
-        <div class="row">
-            <div id= "date"></div>
+            <div id="date"></div>
         </div>
-      </nav>
+    </nav>
     <main class="container">
-    
-
-
-
-
+        <!-- Container element -->
+        <div class="parallax"></div>
         <div class="row m-2 p-2">
 
             <div class="col-2 searchBox">
@@ -39,39 +35,46 @@
             </div>
 
             <div class="col-8 offset-1 weatherBox" id="weatherBox">
-               weather
+                weather
             </div>
         </div>
         <div class="row m-2">
 
             <div class="col-6 m-2 mapBox" id="mapArea">
 
-               Map here 
+                Map here
             </div>
 
 
             <div class="col-4 offset-1 m-2 listBox">
-            list here Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo inventore omnis voluptatibus, consequuntur itaque quis. Asperiores quasi eum quidem sapiente nisi facilis adipisci, maiores eos repellendus accusantium ad harum dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, nemo explicabo nisi nobis quos eveniet non ducimus atque minima doloremque repellendus, quia, praesentium eius delectus in laudantium beatae neque! 
+                <h5> list here</h5>
+                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo inventore omnis voluptatibus,
+                    consequuntur itaque quis. Asperiores quasi eum quidem sapiente nisi facilis adipisci, maiores eos
+                    repellendus accusantium ad harum dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit.
+                    Error, nemo explicabo nisi nobis quos eveniet non ducimus atque minima doloremque repellendus, quia,
+                    praesentium eius delectus in laudantium beatae neque!</p>
             </div>
 
 
         </div>
 
-
-
-    </div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('mapArea'), {
-          center: {lat: 39.952, lng: -75.165},
-          zoom: 8
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpaOyG5B6avKSY0v3Lbm1w0NtIuwhsNfE&callback=initMap"
-    async defer></script>
-
+        </div>
+        <script>
+            var map;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('mapArea'), {
+                    center: { lat: 39.952, lng: -75.165 },
+                    zoom: 8
+                });
+            }
+        </script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpaOyG5B6avKSY0v3Lbm1w0NtIuwhsNfE&callback=initMap"
+            async defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="javascript.js"></script>
 
 
 
@@ -79,11 +82,21 @@
 
     <footer>
         some stuff
-    
+
     </footer>
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="javascript.js"></script>
+
 </html>
