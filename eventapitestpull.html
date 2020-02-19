@@ -2,21 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>T</title>
+    <title>Test</title>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <div class="col-2 searchBox">
+        <form class="row">
+
+            <input type="text" id="event-search" class="col-7 offset-1 "><br>
+
+            <!-- Button triggers new movie to be added -->
+            <input id="add-city" type="submit" value="" class="col-1 searchButton" ß>
+        </form>
+    </div>
+
+    
+
+
+
+    
+   
     <script type="text/javascript">
+
+
+$("#add-city").on("click", function () {
+event.preventDefault()
+var keyword = $("#event-search").val()
+console.log(keyword)
+
+
     var apikey = "c3as7HEpYwqiROU5usilURdHiE9GsCPx"
-        // Example queryURL for Giphy API
-        var queryURL = `https://app.ticketmaster.com/discovery/v2/events.json?city=Philadelphia&apikey=${apikey}`
+
+        
+        var queryURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=pPncRidh6JyeuAas12zGft9MGuVUEQiU&keyword=${keyword}&locale=*&startDateTime=2020-02-19T13:44:00Z&endDateTime=2020-03-31T13:44:00Z&city=philadelphia&size=100`
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
             console.log(response);
             console.log(queryURL);
-        });
+       
+        var listItems = (response._embedded.events)
+    
+        console.log("TCL: listItems", listItems)
+        var itemName = listItems[0].name
+        console.log("TCL: itemName", itemName)
+        var date = listItems[0].dates.start.localDate
+        console.log("TCL: date", date)
+        var time = listItems[0].dates.start.localTime
+        console.log("TCL: time", time)
+        var venue = listItems[0]._embedded.venues[0].name
+        console.log("TCL: venue", venue)
+        /// get details 
+        
+        
+    });
+
+       
+
+
+
+
+    })
+
+
+
+
     </script>
 </body>
 </html>
