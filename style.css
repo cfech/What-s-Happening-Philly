@@ -1,14 +1,25 @@
+body {
+  background-image: url("https://www.publicdomainpictures.net/pictures/60000/velka/philadelphia-skyline.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; 
+}
+
+#navBox,
 .searchBox,
-.weatherBox,
 .listBox,
 .mapBox {
   border: 2px solid #12125e;
-  background-color: #ffe700;
+  background-color: #ffe700 !important;
 }
-.parallax {
-    /* The image used */
-    background-image: url("https://www.publicdomainpictures.net/pictures/60000/velka/philadelphia-skyline.jpg");
-  
+
+.weatherBox{
+  border: 2px solid #12125e;
+  background-color: #ffe700;
+  background: none;
+}
+
+.parallax { 
     /* Set a specific height */
     height: 500px;
   
@@ -19,6 +30,21 @@
     background-size: cover;
   }
 
+  #weatherBox {
+    width: 100px;
+    height: 100px;
+    background:none;
+    position: relative;
+    animation: myfirst 3s 100;
+    animation-direction: alternate-reverse;
+  }
+  
+  @keyframes myfirst {
+    0%   {background: none; left: 0px; top: 0px;}
+    100%  {background: yellow; left: 500px; top: 0px;}
+   
+  
+  }
 footer {
   background-color: #12125e;
   width: 100%;
