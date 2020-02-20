@@ -4,8 +4,11 @@ var APIKey = "20c488e0a9aff750eabd58301c43b3ce"
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=philadelphia&appid=" + APIKey;
 var startDate;
 
+itemsArray = []
+$(document).ready(function(){
 //Setting Date
 $("#date").text(moment().format("dddd, MMMM Do"))
+
 
 //reset variables 
 $("#resetBtn").on("click", function () {
@@ -17,6 +20,8 @@ $("#resetBtn").on("click", function () {
     $("#start-date").val("mm/dd/yyyy")
     $("#end-date").val("mm/dd/yyyy")
     $("#errorRow").addClass("d-none")
+   
+    
 
 })
 
@@ -131,6 +136,33 @@ $.ajax({
     $("#weatherBox").append(weatherDiv)
 })
 
+<<<<<<< HEAD
+=======
+
+
+// var myLatLng = {lat: -39.952 , lng:-75.165  };
+// var map = new google.maps.Map(document.getElementById('mapArea'), {
+// });
+// var marker = new google.maps.Marker({
+//   position: myLatLng,
+//   map: map,
+// });
+ var globalMap
+function initMap() {
+    var myLatLng = {lat: 39.952, lng: -75.165};
+    var locationLatLong = {lat: 39.952, lng: -75.165};
+    var map = new google.maps.Map(document.getElementById('mapArea'), {
+        zoom: 11,
+    center: myLatLng
+    });
+    globalMap = map
+
+    }
+
+initMap()
+
+
+>>>>>>> a06308fe76bc770d9650df3ec075232aec20b5ac
 //Call ajax function on clik of add-city button 
 $("#add-city").on("click", function () {
     event.preventDefault()
@@ -147,13 +179,14 @@ $("#add-city").on("click", function () {
         console.log(queryURL);
         var listItems = (response._embedded.events)
         console.log("TCL: listItems", listItems)
-        for (i = 0; i < listItems.length; i++) {
+        for (let i = 0; i < listItems.length; i++) {
 
             var listItem = $("<li>")
             var itemName = listItems[i].name
             console.log("TCL: itemName", itemName, j++)
             var nameDiv = $("<div>").addClass("nameDiv")
             nameDiv.text(itemName)
+            itemsArray.push(itemName)
 
             var date = listItems[i].dates.start.localDate
             console.log("TCL: date", date)
@@ -174,14 +207,47 @@ $("#add-city").on("click", function () {
             console.log("TCL: listItem", listItem)
             $("#listArea").append(listItem)
 
+<<<<<<< HEAD
             var longitude = listItems[i]._embedded.venues[0].location.longitude
             console.log("TCL: longitude", longitude);
             var latitude = listItems[i]._embedded.venues[0].location.latitude
             console.log("TCL: latitude", latitude);
+=======
+            //longitude & Latitude 
+            var longitude = (Math.random()/800)+parseFloat(listItems[i]._embedded.venues[0].location.longitude)
+            console.log("TCL: longitude", longitude)
+
+            var latitude = (Math.random()/800)+parseFloat(listItems[i]._embedded.venues[0].location.latitude)
+            console.log("TCL: latitude", latitude)
+           //map markers 
+           
+            var uluru = {lat: latitude, lng: longitude};
+            var marker = new google.maps.Marker({
+            position: uluru,
+            map: globalMap,
+            title: itemName,
+            zIndex: listItems.length - i
+                
+            
+          });
+          //function for clicking on the marker 
+
+          var infoWindow = new google.maps.InfoWindow({
+            content: itemName
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+            console.log("clicked")
+            infoWindow.open(globalMap, marker)
+
+          });
+            
+            // get details 
+>>>>>>> a06308fe76bc770d9650df3ec075232aec20b5ac
         }
     });
 })
 
+<<<<<<< HEAD
 
 
 // for (var i = 0; i < listItems.length; i++) {
@@ -193,3 +259,17 @@ $("#add-city").on("click", function () {
 // longitudeArray.push(longitude);
 // latitudeArray.push(latitude);
 
+=======
+    // $("li").on("click", function(){
+    //     console.log("clicked")
+    //     uluru = (latitude, longitude)
+    //     var marker = new google.maps.Marker({
+    //         position: uluru,
+    //         map: map
+    //       });
+    // })
+
+
+
+})
+>>>>>>> a06308fe76bc770d9650df3ec075232aec20b5ac
