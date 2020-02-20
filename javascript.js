@@ -4,8 +4,11 @@ var APIKey = "20c488e0a9aff750eabd58301c43b3ce"
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=philadelphia&appid=" + APIKey;
 var startDate
 
+itemsArray = []
+$(document).ready(function(){
 //Setting Date
 $("#date").text(moment().format("dddd, MMMM Do"))
+
 
 //reset variables 
 $("#resetBtn").on("click", function () {
@@ -17,6 +20,8 @@ $("#resetBtn").on("click", function () {
     $("#start-date").val("mm/dd/yyyy")
     $("#end-date").val("mm/dd/yyyy")
     $("#errorRow").addClass("d-none")
+   
+    
 
 })
 
@@ -30,12 +35,12 @@ $("#endBtn").on("click", function () {
     console.log(startDate)
     endDate = $("#end-date").val()
     console.log(endDate)
-    if(startDate !== "" && endDate !== ""){
-    $(".keywordSearch").removeClass("d-none")
-    $("#endBtn").addClass("d-none")
-    $("#errorRow").addClass("d-none")
+    if (startDate !== "" && endDate !== "") {
+        $(".keywordSearch").removeClass("d-none")
+        $("#endBtn").addClass("d-none")
+        $("#errorRow").addClass("d-none")
 
-    }else {
+    } else {
         $("#errorRow").removeClass("d-none")
     }
 })
@@ -81,6 +86,27 @@ $.ajax({
 
 
 
+// var myLatLng = {lat: -39.952 , lng:-75.165  };
+// var map = new google.maps.Map(document.getElementById('mapArea'), {
+// });
+// var marker = new google.maps.Marker({
+//   position: myLatLng,
+//   map: map,
+// });
+ var globalMap
+function initMap() {
+    var myLatLng = {lat: 39.952, lng: -75.165};
+    var locationLatLong = {lat: 39.952, lng: -75.165};
+    var map = new google.maps.Map(document.getElementById('mapArea'), {
+        zoom: 11,
+    center: myLatLng
+    });
+    globalMap = map
+
+    }
+
+initMap()
+
 
 //Call ajax function on clik of add-city button 
 $("#add-city").on("click", function () {
@@ -98,13 +124,14 @@ $("#add-city").on("click", function () {
         console.log(queryURL);
         var listItems = (response._embedded.events)
         console.log("TCL: listItems", listItems)
-        for (i = 0; i < listItems.length; i++) {
+        for (let i = 0; i < listItems.length; i++) {
 
             var listItem = $("<li>")
             var itemName = listItems[i].name
             console.log("TCL: itemName", itemName, j++)
             var nameDiv = $("<div>").addClass("nameDiv")
             nameDiv.text(itemName)
+            itemsArray.push(itemName)
 
             var date = listItems[i].dates.start.localDate
             console.log("TCL: date", date)
@@ -126,8 +153,48 @@ $("#add-city").on("click", function () {
             console.log("TCL: listItem", listItem)
             $("#listArea").append(listItem)
 
+            //longitude & Latitude 
+            var longitude = (Math.random()/800)+parseFloat(listItems[i]._embedded.venues[0].location.longitude)
+            console.log("TCL: longitude", longitude)
 
+            var latitude = (Math.random()/800)+parseFloat(listItems[i]._embedded.venues[0].location.latitude)
+            console.log("TCL: latitude", latitude)
+           //map markers 
+           
+            var uluru = {lat: latitude, lng: longitude};
+            var marker = new google.maps.Marker({
+            position: uluru,
+            map: globalMap,
+            title: itemName,
+            zIndex: listItems.length - i
+                
+            
+          });
+          //function for clicking on the marker 
+
+          var infoWindow = new google.maps.InfoWindow({
+            content: itemName
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+            console.log("clicked")
+            infoWindow.open(globalMap, marker)
+
+          });
+            
             // get details 
         }
     });
+})
+
+    // $("li").on("click", function(){
+    //     console.log("clicked")
+    //     uluru = (latitude, longitude)
+    //     var marker = new google.maps.Marker({
+    //         position: uluru,
+    //         map: map
+    //       });
+    // })
+
+
+
 })

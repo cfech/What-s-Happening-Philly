@@ -32,10 +32,10 @@ body {
   background: none;
   position: relative;
   animation: myfirst 3s 100;
-  animation-direction: alternate-reverse;
+  /* animation-direction: alternate-reverse; */
 }
 
-@keyframes myfirst {
+/* @keyframes myfirst {
   0% {
     background: none;
     left: 0px;
@@ -46,7 +46,7 @@ body {
     left: 500px;
     top: 0px;
   }
-}
+} */
 
 footer {
   background-color: #12125e;
@@ -68,7 +68,11 @@ li {
   margin: 5px;
   background-color: white;
 }
-
+li:hover{
+  border: black;
+  border: solid;
+  border-width: 5px;
+}
 .listBox {
   overflow-y: scroll;
   background-color: blue;
