@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
 
@@ -17,7 +20,8 @@
     <main class="container">
 
         <nav class="jumbotron justify-content-center" id="navBox">
-            <h1 class="display-4 text-center">What's Happening Today?</h1>
+            <h1 class="display-4 text-center"><img id="libertybell" src="./images/libertybell.png" alt="Liberty Bell">
+                What's Happening Philly?</h1>
             <div class="row">
                 <div class="col-sm-12 h1 text-center" id="date"></div>
             </div>
@@ -35,14 +39,20 @@
                 </form>
 
                 <!--Start date dive-->
-                <form class="row mt-4 justify-content-center">
-                    <input type="date" id="start-date" class="col-lg-9 col-sm-7 "><br>
+                <form class="mt-2 input-group">
+                    <div class="input-group-prepend">
+                        <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
+                    </div>
+                    <input type="date" id="start-date" class="form-control">
 
                 </form>
 
                 <!--End date Div -->
-                <form class="row mt-4 justify-content-center">
-                    <input type="date" id="end-date" class="col-lg-9 col-sm-7 "><br>
+                <form class="mt-2 input-group">
+                    <div class="input-group-prepend">
+                    <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
+                    </div>
+                    <input type="date" id="end-date" class="form-control"><br>
 
                 </form>
                 <!--Error row-->
@@ -52,11 +62,11 @@
 
                 <!--Go button div-->
                 <div class="row justify-content-center">
-                    <input id="endBtn" type="submit" value="go" class="col-lg-4 searchButton mt-3 col-sm-7" ß>
+                    <button id="endBtn" type="submit" class="col-lg-4 searchButton mt-3 col-sm-7"> Go <i class="fa fa-search" aria-hidden="true"></i> </button>
                 </div>
                 <!--Reset Button -->
-                <div class="row mt-4 justify-content-center p-3 mb-4">
-                    <button id="resetBtn" class="col-4"> reset </button>
+                <div class="row justify-content-center">
+                    <button id="resetBtn" type="submit" class="col-lg-4 searchButton mt-3 col-sm-7">Reset<i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
 
             </div>
