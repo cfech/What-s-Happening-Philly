@@ -7,7 +7,29 @@ body {
 
 #navBox, .searchBox, .listBox, .mapBox {
   border: 2px solid #12125e;
-  background-color: #ffe700 !important;
+  background: rgba(244, 230, 191, 0.639);  !important;
+  border-radius: 15px;
+
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 400% !important;
+  color: #12125e;
+  text-shadow:2px 2px white;
+
+} 
+
+.h1 {
+  font-family: 'Oswald', sans-serif;
+}
+
+#libertybell {
+  border-radius: 4px;
+  padding: 5px;
+  width: 110px;
+  position: relative;
+  top: 15px;
 }
 
 .weatherBox {
@@ -31,7 +53,7 @@ body {
   height: 100px;
   background: none;
   position: relative;
-  animation: myfirst 3s 100;
+  /* animation: myfirst 3s 100;
   animation-direction: alternate-reverse;
 }
 
@@ -40,13 +62,13 @@ body {
     background: none;
     left: 0px;
     top: 0px;
-  }
-  100% {
+  } */
+  /* 100% {
     background: yellow;
     left: 500px;
-    top: 0px;
+    top: 0px; */
   }
-}
+
 
 footer {
   background-color: #12125e;
