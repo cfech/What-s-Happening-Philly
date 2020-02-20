@@ -8,63 +8,100 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-   
-    
+
+
     <title>Event Location</title>
 </head>
 
 <body>
     <main class="container">
+
         <nav class="jumbotron justify-content-center" id="navBox">
             <h1 class="display-4 text-center">What's Happening Today?</h1>
             <div class="row">
                 <div class="col-sm-12 h1 text-center" id="date"></div>
             </div>
         </nav>
+
         <div class="row m-2 p-2">
-            <div class="col-2 searchBox">
-                <form class="row">
-                    <input type="text" id="event-search" class="col-7 offset-1 "><br>
-                    <!-- Button triggers new movie to be added -->
+
+            <!--Searchbox div-->
+            <div class="col-lg-3 col-md-11 searchBox">
+
+                <!--Keyword Search div-->
+                <form class="row d-none keywordSearch mt-2 justify-content-center">
+                    <input type="text" id="event-search" class="col-7 "><br>
                     <input id="add-city" type="submit" value="" class="col-1 searchButton" ß>
                 </form>
+
+                <!--Start date dive-->
+                <form class="row mt-4 justify-content-center">
+                    <input type="date" id="start-date" class="col-lg-9 col-sm-7 "><br>
+
+                </form>
+
+                <!--End date Div -->
+                <form class="row mt-4 justify-content-center">
+                    <input type="date" id="end-date" class="col-lg-9 col-sm-7 "><br>
+
+                </form>
+
+                <!--Go button div-->
+                <div class="row justify-content-center">
+                    <input id="endBtn" type="submit" value="go" class="col-lg-4 searchButton mt-3 col-sm-7" ß>
+                </div>
+                <!--Reset Button -->
+                <div class="row mt-4 justify-content-center p-3 mb-4">
+                    <button id="resetBtn" class="col-4"> reset </button>
+                </div>
+
             </div>
-            <div class="col-8 offset-1 weatherBox p-5">
+
+            <!--Weather area -->
+            <div class="col-lg-8 offset-1 weatherBox p-5 col-md-11">
                 <ul class="list-group list-group-horizontal" id="weatherBox"></ul>
             </div>
+
         </div>
-        <div class="row m-2">
-            <div class="col-6 m-2 mapBox mr-5" id="mapArea">
+
+        <!--Map area/List Row -->
+        <div class="row m-2 ">
+
+            <!--Map Div-->
+            <div class="col-lg-6 m-2 mapBox mr-5 col-md-11" id="mapArea">
                 Map here
             </div>
 
-            <div class="col-4 offset-1 ml-4 listBox">
-           <ul id = "listArea">
-
-           </ul>
+            <!--List area -->
+            <div class="col-lg-4 offset-1 ml-4 listBox col-md-11">
+                <ol id="listArea">
+                </ol>
             </div>
-            
+
         </div>
+
         <!-- Container element img lives here see CSS. do not move. -->
         <div class="parallax"></div>
+
+        <!--Map call hardc coded for philly and zoom-->
         <script>
             var map;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('mapArea'), {
                     center: { lat: 39.952, lng: -75.165 },
-                    zoom: 8
+                    zoom: 11
                 });
             }
         </script>
 
+        <!--Scripts-->
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqROn-JpUPdoFUbby3NZIYMa4WmIn9w0M&callback=initMap"
+            async defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="javascript.js"></script>
 
-
-
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqROn-JpUPdoFUbby3NZIYMa4WmIn9w0M&callback=initMap"
- async defer></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="javascript.js"></script>
     </main>
     <footer>
         some stuff
