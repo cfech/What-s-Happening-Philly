@@ -2,49 +2,52 @@ body {
   background-image: url("https://www.publicdomainpictures.net/pictures/60000/velka/philadelphia-skyline.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed; 
+  background-attachment: fixed;
 }
 
-#navBox,
-.searchBox,
-.listBox,
-.mapBox {
+#navBox, .searchBox, .listBox, .mapBox {
   border: 2px solid #12125e;
   background-color: #ffe700 !important;
 }
 
-.weatherBox{
+.weatherBox {
   border: 2px solid #12125e;
   background-color: #ffe700;
   background: none;
 }
 
-.parallax { 
-    /* Set a specific height */
-    height: 500px;
-  
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+.parallax {
+  /* Set a specific height */
+  height: 500px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  #weatherBox {
-    width: 100px;
-    height: 100px;
-    background:none;
-    position: relative;
-    animation: myfirst 3s 100;
-    animation-direction: alternate-reverse;
+#weatherBox {
+  width: 100px;
+  height: 100px;
+  background: none;
+  position: relative;
+  animation: myfirst 3s 100;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes myfirst {
+  0% {
+    background: none;
+    left: 0px;
+    top: 0px;
   }
-  
-  @keyframes myfirst {
-    0%   {background: none; left: 0px; top: 0px;}
-    100%  {background: yellow; left: 500px; top: 0px;}
-   
-  
+  100% {
+    background: yellow;
+    left: 500px;
+    top: 0px;
   }
+}
+
 footer {
   background-color: #12125e;
   width: 100%;
@@ -55,4 +58,27 @@ footer {
 #mapArea {
   height: 400px;
   border-color: #12125e;
+}
+
+li {
+  border: black;
+  border: solid;
+  border-width: 2px;
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+}
+
+.listBox {
+  overflow-y: scroll;
+  background-color: blue;
+  height: 500px;
+}
+
+#endBtn {
+  height: 30px;
+}
+.errorMessage{
+font-size: 16px;
+opacity: 50%;
 }
