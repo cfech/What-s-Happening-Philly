@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image: url("https://www.publicdomainpictures.net/pictures/60000/velka/philadelphia-skyline.jpg");
   background-repeat: no-repeat;
@@ -5,7 +9,25 @@ body {
   background-attachment: fixed;
 }
 
-#navBox, .searchBox, .listBox, .mapBox {
+.mainContent {
+  /* max-width: 960px;
+  margin: auto; */
+  position: relative;
+  left: -1000px;
+  opacity: 0;
+}
+
+#navBox {
+  min-height: 300px;
+  position: relative;
+  left: -1000px;
+  opacity: 0;
+}
+
+#navBox,
+.searchBox,
+.listBox,
+.mapBox {
   border: 2px solid #12125e;
   background-color: #ffe700 !important;
 }
@@ -18,7 +40,7 @@ body {
 
 .parallax {
   /* Set a specific height */
-  height: 500px;
+  /* height: 500px; */
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
@@ -27,15 +49,70 @@ body {
 }
 
 #weatherBox {
-  width: 100px;
-  height: 100px;
+  width: 500px;
+  height: 200px;
   background: none;
   position: relative;
-  animation: myfirst 3s 100;
-  animation-direction: alternate-reverse;
+  /* animation: weatherScroll 3s 100;
+  animation-direction: alternate-reverse; */
 }
 
-@keyframes myfirst {
+.demo-1 {
+  height: 60px;
+  width: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.demo-1 h3 {
+  font-size: 2em;
+  color: yellowgreen;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  line-height: 40px;
+  text-align: center;
+  /* Starting position */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  /* Apply animation to this element */
+  -moz-animation: demo-1 15s linear infinite;
+  -webkit-animation: demo-1 15s linear infinite;
+  animation: demo-1 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes demo-1 {
+  0% {
+    -moz-transform: translateX(100%);
+  }
+  100% {
+    -moz-transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes demo-1 {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+@keyframes demo-1 {
+  0% {
+    -moz-transform: translateX(100%); /* Firefox bug fix */
+    -webkit-transform: translateX(100%); /* Firefox bug fix */
+    transform: translateX(100%);
+  }
+  100% {
+    -moz-transform: translateX(-100%); /* Firefox bug fix */
+    -webkit-transform: translateX(-100%); /* Firefox bug fix */
+    transform: translateX(-100%);
+  }
+}
+
+/* @keyframes weatherScroll {
   0% {
     background: none;
     left: 0px;
@@ -46,7 +123,7 @@ body {
     left: 500px;
     top: 0px;
   }
-}
+} */
 
 footer {
   background-color: #12125e;
@@ -78,7 +155,7 @@ li {
 #endBtn {
   height: 30px;
 }
-.errorMessage{
-font-size: 16px;
-opacity: 50%;
+.errorMessage {
+  font-size: 16px;
+  opacity: 50%;
 }

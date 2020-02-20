@@ -19,74 +19,75 @@
         <nav class="jumbotron justify-content-center" id="navBox">
             <h1 class="display-4 text-center">What's Happening Today?</h1>
             <div class="row">
-                <div class="col-sm-12 h1 text-center" id="date"></div>
+                <div class="col-sm-12 h2 text-center" id="date"></div>
             </div>
         </nav>
+        <section class="mainContent">
+            <div class="row m-2 p-2">
 
-        <div class="row m-2 p-2">
+                <!--Searchbox div-->
+                <div class="col-lg-3 col-md-11 searchBox">
 
-            <!--Searchbox div-->
-            <div class="col-lg-3 col-md-11 searchBox">
+                    <!--Keyword Search div-->
+                    <form class="row d-none keywordSearch mt-2 justify-content-center">
+                        <input type="text" id="event-search" class="col-7 "><br>
+                        <input id="add-city" type="submit" value="" class="col-1 searchButton" ß>
+                    </form>
 
-                <!--Keyword Search div-->
-                <form class="row d-none keywordSearch mt-2 justify-content-center">
-                    <input type="text" id="event-search" class="col-7 "><br>
-                    <input id="add-city" type="submit" value="" class="col-1 searchButton" ß>
-                </form>
+                    <!--Start date dive-->
+                    <form class="row mt-4 justify-content-center">
+                        <input type="date" id="start-date" class="col-lg-9 col-sm-7 "><br>
 
-                <!--Start date dive-->
-                <form class="row mt-4 justify-content-center">
-                    <input type="date" id="start-date" class="col-lg-9 col-sm-7 "><br>
+                    </form>
 
-                </form>
+                    <!--End date Div -->
+                    <form class="row mt-4 justify-content-center">
+                        <input type="date" id="end-date" class="col-lg-9 col-sm-7 "><br>
 
-                <!--End date Div -->
-                <form class="row mt-4 justify-content-center">
-                    <input type="date" id="end-date" class="col-lg-9 col-sm-7 "><br>
+                    </form>
+                    <!--Error row-->
+                    <div class="row justify-content-center d-none mt-2" id="errorRow">
+                        <p class="errorMessage">*Please select a date</p>
+                    </div>
 
-                </form>
-                <!--Error row-->
-                <div class="row justify-content-center d-none mt-2" id="errorRow">
-                    <p class="errorMessage">*Please select a date</p>
+                    <!--Go button div-->
+                    <div class="row justify-content-center">
+                        <input id="endBtn" type="submit" value="go" class="col-lg-4 searchButton mt-3 col-sm-7" ß>
+                    </div>
+                    <!--Reset Button -->
+                    <div class="row mt-4 justify-content-center p-3 mb-4">
+                        <button id="resetBtn" class="col-4"> reset </button>
+                    </div>
+
                 </div>
 
-                <!--Go button div-->
-                <div class="row justify-content-center">
-                    <input id="endBtn" type="submit" value="go" class="col-lg-4 searchButton mt-3 col-sm-7" ß>
-                </div>
-                <!--Reset Button -->
-                <div class="row mt-4 justify-content-center p-3 mb-4">
-                    <button id="resetBtn" class="col-4"> reset </button>
+                <!--Weather area -->
+                <div class="col-lg-8 offset-1 weatherBox p-5 col-md-11">
+                    <div class="list-group list-group-horizontal demo-1 bg-danger" id="weatherBox"></div>
                 </div>
 
             </div>
 
-            <!--Weather area -->
-            <div class="col-lg-8 offset-1 weatherBox p-5 col-md-11">
-                <ul class="list-group list-group-horizontal" id="weatherBox"></ul>
+            <!--Map area/List Row -->
+            <div class="row m-2 ">
+
+                <!--Map Div-->
+                <div class="col-lg-6 m-2 mapBox mr-5 col-md-11" id="mapArea">
+                    Map here
+                </div>
+
+                <!--List area -->
+                <div class="col-lg-4 offset-1 ml-4 listBox col-md-11">
+                    <ol id="listArea">
+                    </ol>
+                </div>
+
             </div>
 
-        </div>
-
-        <!--Map area/List Row -->
-        <div class="row m-2 ">
-
-            <!--Map Div-->
-            <div class="col-lg-6 m-2 mapBox mr-5 col-md-11" id="mapArea">
-                Map here
-            </div>
-
-            <!--List area -->
-            <div class="col-lg-4 offset-1 ml-4 listBox col-md-11">
-                <ol id="listArea">
-                </ol>
-            </div>
-
-        </div>
+        </section>
 
         <!-- Container element img lives here see CSS. do not move. -->
         <div class="parallax"></div>
-
         <!--Map call hardc coded for philly and zoom-->
         <script>
             var map;
@@ -105,6 +106,24 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="javascript.js"></script>
+        <script>
+            $(document).ready(function () {
+
+
+                $("#navBox").animate({
+                    left: 0,
+                    opacity: 1
+                }, 1000, function () {
+                });
+                $(".mainContent").animate({
+                    left: 0,
+                    opacity: 1
+                }, 1000)
+                // $("html, body").animate({
+                //     scrollTop: 0
+                // }, 1000)
+            })
+        </script>
 
     </main>
     <footer>
