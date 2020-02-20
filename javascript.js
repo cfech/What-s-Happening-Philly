@@ -126,23 +126,37 @@ $("#add-city").on("click", function () {
         console.log("TCL: listItems", listItems)
         for (let i = 0; i < listItems.length; i++) {
 
+ //longitude & Latitude 
+            var longitude = (Math.random()/800)+parseFloat(listItems[i]._embedded.venues[0].location.longitude)
+            console.log("TCL: longitude", longitude)
+
+            var latitude = (Math.random()/800)+parseFloat(listItems[i]._embedded.venues[0].location.latitude)
+            console.log("TCL: latitude", latitude)
+            
             var listItem = $("<li>")
+            listItem.attr("data-lat", latitude )
+            listItem.attr("data-lon", longitude)
+            
             var itemName = listItems[i].name
             console.log("TCL: itemName", itemName, j++)
             var nameDiv = $("<div>").addClass("nameDiv")
             nameDiv.text(itemName)
             itemsArray.push(itemName)
+           
 
             var date = listItems[i].dates.start.localDate
             console.log("TCL: date", date)
             var dateDiv = $('<div>').addClass("dateDiv")
             dateDiv.text("Date:  " + date)
-
+            
 
             var time = listItems[i].dates.start.localTime
             console.log("TCL: time", time)
             var timeDiv = $("<div>").addClass("timeDiv")
             timeDiv.text("Start Time: " + time)
+            listItem.attr("data-name","<p>"+itemName + "</p><p> Date:"+ date +'   Start Time:' +time+"</p>")
+
+
 
             var venue = listItems[i]._embedded.venues[0].name
             console.log("TCL: venue", venue)
@@ -153,48 +167,45 @@ $("#add-city").on("click", function () {
             console.log("TCL: listItem", listItem)
             $("#listArea").append(listItem)
 
-            //longitude & Latitude 
-            var longitude = (Math.random()/800)+parseFloat(listItems[i]._embedded.venues[0].location.longitude)
-            console.log("TCL: longitude", longitude)
-
-            var latitude = (Math.random()/800)+parseFloat(listItems[i]._embedded.venues[0].location.latitude)
-            console.log("TCL: latitude", latitude)
-           //map markers 
            
-            var uluru = {lat: latitude, lng: longitude};
-            var marker = new google.maps.Marker({
-            position: uluru,
-            map: globalMap,
-            title: itemName,
-            zIndex: listItems.length - i
-                
-            
-          });
-          //function for clicking on the marker 
+           //map markers 
 
-          var infoWindow = new google.maps.InfoWindow({
-            content: itemName
-          });
-          google.maps.event.addListener(marker, 'click', function() {
-            console.log("clicked")
-            infoWindow.open(globalMap, marker)
-
-          });
             
             // get details 
         }
     });
 })
 
-    // $("li").on("click", function(){
-    //     console.log("clicked")
-    //     uluru = (latitude, longitude)
-    //     var marker = new google.maps.Marker({
-    //         position: uluru,
-    //         map: map
-    //       });
-    // })
+    $(document).on("click","li", function(){
+        console.log("clicked")
+        console.log($(this))
+        var dataLatitude = parseFloat($(this).attr("data-lat"))
+        var dataLongitude = parseFloat($(this).attr("data-lon"))
+        var place = {lat: dataLatitude, lng: dataLongitude};
+        var marker = new google.maps.Marker({
+        position: place,
+        map: globalMap,
+        
+        
+        
+        
+      });
+      //function for clicking on the marker 
+      var dataName = $(this).attr("data-name")
+      var infoWindow = new google.maps.InfoWindow({
+        
+        content: dataName
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        console.log("clicked")
+        infoWindow.open(globalMap, marker)
 
+      });
+
+
+
+      
+    })
 
 
 })
