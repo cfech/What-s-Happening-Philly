@@ -16,6 +16,7 @@ $("#resetBtn").on("click", function () {
     $("#listArea").empty()
     $("#start-date").val("mm/dd/yyyy")
     $("#end-date").val("mm/dd/yyyy")
+    $("#errorRow").addClass("d-none")
 
 })
 
@@ -29,9 +30,14 @@ $("#endBtn").on("click", function () {
     console.log(startDate)
     endDate = $("#end-date").val()
     console.log(endDate)
+    if(startDate !== "" && endDate !== ""){
     $(".keywordSearch").removeClass("d-none")
     $("#endBtn").addClass("d-none")
+    $("#errorRow").addClass("d-none")
 
+    }else {
+        $("#errorRow").removeClass("d-none")
+    }
 })
 
 // ajax call for weather 

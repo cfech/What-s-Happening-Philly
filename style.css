@@ -78,3 +78,7 @@ li {
 #endBtn {
   height: 30px;
 }
+.errorMessage{
+font-size: 16px;
+opacity: 50%;
+}
