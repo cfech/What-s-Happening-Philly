@@ -209,3 +209,17 @@ $(document).ready(function () {
         });
     })
 })
+
+// function swapImages(){
+//     var $active = $('#imgGallery .active');
+//     var $next = ($('#imgGallery .active').next().length > 0) ? $('#imgGallery .active').next() : $('#imgGallery img:first');
+//     $active.fadeOut(function(){
+//     $active.removeClass('active');
+//     $next.fadeIn().addClass('active');
+//     });
+//   }
+// ​
+//   $(document).ready(function(){
+//      Run our swapImages() function every 10800secs= every 3 hours daytime to dusk to nighttime
+//     setInterval('swapImages()', 10800);
+//   }
