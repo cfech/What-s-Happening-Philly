@@ -24,10 +24,7 @@ body {
   opacity: 0;
 }
 
-#navBox,
-.searchBox,
-.listBox,
-.mapBox {
+#navBox, .searchBox, .listBox, .mapBox {
   border: 2px solid #12125e;
   background: rgba(244, 230, 191, 0.639) !important;
   border-radius: 15px;
@@ -102,7 +99,9 @@ h1 {
   -webkit-animation: demo-1 15s linear infinite;
   animation: demo-1 15s linear infinite;
 }
+
 /* Move it (define the animation) */
+
 @-moz-keyframes demo-1 {
   0% {
     -moz-transform: translateX(100%);
@@ -111,6 +110,7 @@ h1 {
     -moz-transform: translateX(-100%);
   }
 }
+
 @-webkit-keyframes demo-1 {
   0% {
     -webkit-transform: translateX(100%);
@@ -119,15 +119,20 @@ h1 {
     -webkit-transform: translateX(-100%);
   }
 }
+
 @keyframes demo-1 {
   0% {
-    -moz-transform: translateX(100%); /* Firefox bug fix */
-    -webkit-transform: translateX(100%); /* Firefox bug fix */
+    -moz-transform: translateX(100%);
+    /* Firefox bug fix */
+    -webkit-transform: translateX(100%);
+    /* Firefox bug fix */
     transform: translateX(100%);
   }
   100% {
-    -moz-transform: translateX(-100%); /* Firefox bug fix */
-    -webkit-transform: translateX(-100%); /* Firefox bug fix */
+    -moz-transform: translateX(-100%);
+    /* Firefox bug fix */
+    -webkit-transform: translateX(-100%);
+    /* Firefox bug fix */
     transform: translateX(-100%);
   }
 }
@@ -171,6 +176,7 @@ li {
 #endBtn {
   height: 30px;
 }
+
 .errorMessage {
   font-size: 16px;
   opacity: 50%;
