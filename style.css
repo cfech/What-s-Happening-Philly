@@ -1,12 +1,24 @@
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /*styling for parallax effect*/
 }
 
+/*Styling for parallax effect and rotating image gallery timer animation*/
 body {
   background-image: url("https://www.publicdomainpictures.net/pictures/60000/velka/philadelphia-skyline.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+/*Moved parallax code here to continuity and proper ordering*/
+
+.parallax {
+  /* Set a specific height */
+  /* height: 500px; */
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .mainContent {
@@ -24,12 +36,15 @@ body {
   opacity: 0;
 }
 
-#navBox, .searchBox, .listBox, .mapBox {
+#navBox,
+.searchBox,
+.listBox,
+.mapBox {
   border: 2px solid #12125e;
   background: rgba(244, 230, 191, 0.639) !important;
   border-radius: 15px;
 }
-
+/*Title Headings Google Font Styline for h1 and .h1*/
 h1 {
   font-family: "Pacifico", cursive;
   font-size: 400% !important;
@@ -40,7 +55,7 @@ h1 {
 .h1 {
   font-family: "Oswald", sans-serif;
 }
-
+/*Liberty Bell Logo*/
 #libertybell {
   border-radius: 4px;
   padding: 5px;
@@ -49,102 +64,23 @@ h1 {
   top: 15px;
 }
 
+/* CZ curved border & changed background color */
+
 .weatherBox {
   border: 2px solid #12125e;
-  background-color: #ffe700;
-  background: none;
+  background: rgba(244, 230, 191, 0.639) !important;
+  border-radius: 15px;
+  font-family: "Oswald", sans-serif;
+  font-size: 24px !important;
 }
 
-.parallax {
-  /* Set a specific height */
-  /* height: 500px; */
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#weatherBox {
+/* #weatherBox {
   width: 500px;
   height: 200px;
   background: none;
   position: relative;
-  /* animation: weatherScroll 3s 100;
-  animation-direction: alternate-reverse; */
-}
-
-.demo-1 {
-  height: 60px;
-  width: 500px;
-  overflow: hidden;
-  position: relative;
-}
-
-.demo-1 h3 {
-  font-size: 2em;
-  color: yellowgreen;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  line-height: 40px;
-  text-align: center;
-  /* Starting position */
-  -moz-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-  /* Apply animation to this element */
-  -moz-animation: demo-1 15s linear infinite;
-  -webkit-animation: demo-1 15s linear infinite;
-  animation: demo-1 15s linear infinite;
-}
-
-/* Move it (define the animation) */
-
-@-moz-keyframes demo-1 {
-  0% {
-    -moz-transform: translateX(100%);
-  }
-  100% {
-    -moz-transform: translateX(-100%);
-  }
-}
-
-@-webkit-keyframes demo-1 {
-  0% {
-    -webkit-transform: translateX(100%);
-  }
-  100% {
-    -webkit-transform: translateX(-100%);
-  }
-}
-
-@keyframes demo-1 {
-  0% {
-    -moz-transform: translateX(100%);
-    /* Firefox bug fix */
-    -webkit-transform: translateX(100%);
-    /* Firefox bug fix */
-    transform: translateX(100%);
-  }
-  100% {
-    -moz-transform: translateX(-100%);
-    /* Firefox bug fix */
-    -webkit-transform: translateX(-100%);
-    /* Firefox bug fix */
-    transform: translateX(-100%);
-  }
-}
-
-/* @keyframes weatherScroll {
-  0% {
-    -webkit-transform: translateX(100%);
-  }
-  100% {
-    -webkit-transform: translateX(-100%);
-  }
 } */
+/*demo-1, demo-1 h3 code deleted*/
 
 footer {
   background-color: #12125e;
@@ -161,10 +97,12 @@ footer {
 li {
   border: black;
   border: solid;
-  border-width: 2px;
+  border-radius: 12px;
+  border-width: 3px;
   padding: 5px;
   margin: 5px;
   background-color: white;
+  font-family: "Oswald", sans-serif;
 }
 
 .listBox {
@@ -173,11 +111,62 @@ li {
   height: 500px;
 }
 
-#endBtn {
-  height: 30px;
+/* CZ Hide scrollbar for Chrome, Safari and Opera */
+.listBox::-webkit-scrollbar {
+  display: none !important;
 }
 
+/* CZ Hide scrollbar for IE and Edge */
+.listBox {
+  -ms-overflow-style: none !important;
+}
+/* <---CZ---> */
+
+#endBtn {
+  height: 30px;
+  border-radius: 12px;
+}
+/* <---CZ---> */
+#resetBtn {
+  height: 30px;
+  border-radius: 12px;
+}
+
+#add-city {
+  height: 30px;
+  border-radius: 12px;
+}
+
+/* <---CZ---> */
 .errorMessage {
   font-size: 16px;
-  opacity: 50%;
+  color: blue;
+  font-weight: bold;
 }
+/* <---CZ---> */
+#listArea {
+  padding: 0;
+  margin: 0;
+  margin-left: 40px;
+}
+#listArea {
+  line-height: 30px;
+  list-style-type: none;
+}
+#listArea li:before {
+  font-family: FontAwesome;
+  font-size: 30px;
+  position: absolute;
+  margin-left: -40px;
+  content: "\f041";
+  color: #12125e;
+}
+/* 
+#listArea  { 
+  font-family: "Oswald", sans-serif;
+  border-radius: 12px;
+  background-color: currentColor;
+  margin-top: 10px !important;
+
+} */
+/* <--CZ--> */
