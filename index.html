@@ -7,21 +7,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <!--Google Fonts used-->
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <!--Custom Styling for Animations and overriding bootstrap colors-->
     <link rel="stylesheet" href="style.css">
-
-
-    <title>Event Location</title>
+    <title>Philly Event Tracker</title>
 </head>
 
 <body>
     <main class="container">
-
         <nav class="jumbotron justify-content-center" id="navBox">
-            <h1 class="display-4 text-center"><img id="libertybell" src="./images/libertybell.png" alt="Liberty Bell">
+            <!--Liberty Bell LogoKG-->
+            <h1 class="display-4 text-center"><img id="libertybell" src="./images/libertybell.png"
+                    alt="Liberty Bell logo in navy colored outline">
                 What's Happening Philly?</h1>
             <div class="row">
+                <!--JQuery function will add moment.js date hereKG-->
                 <div class="col-sm-12 h1 text-center" id="date"></div>
             </div>
         </nav>
@@ -33,8 +35,8 @@
                 <form id="searchForm">
                     <!--Keyword Search div-->
                     <section class="row d-none keywordSearch mt-2 justify-content-center">
-                        <input type="text" id="event-search" class="col-9" placeholder="ex. music, Eagles, etc."data-toggle="tooltip" data-placement="top"
-                    title="Keyword search"><br>
+                        <input type="text" id="event-search" class="col-9" placeholder="ex. music, Eagles, etc."
+                            data-toggle="tooltip" data-placement="top" title="Keyword search"><br>
                     </section>
 
                     <!--Start date dive-->
@@ -42,8 +44,8 @@
                         <div class="input-group-prepend">
                             <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
                         </div>
-                        <input type="date" id="start-date" class="form-control" data-toggle="tooltip" data-placement="top"
-                            title="Choose a date range before choosing event type">
+                        <input type="date" id="start-date" class="form-control" data-toggle="tooltip"
+                            data-placement="top" title="Choose a date range before choosing event type">
                     </section>
 
                     <!--End date Div -->
@@ -61,7 +63,8 @@
 
 
                     <section class="row d-none keywordSearch mt-2 justify-content-center">
-                        <button id="add-city" type="submit" value="" class="col-4 searchButton">Go <i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button id="add-city" type="submit" value="" class="col-4 searchButton">Go <i
+                                class="fa fa-search" aria-hidden="true"></i></button>
                     </section>
 
                     <!--Go button div-->
@@ -72,30 +75,31 @@
                     <!--Reset Button -->
                     <div class="row justify-content-center">
                         <button id="resetBtn" type="reset" class="col-lg-4 searchButton mt-3 col-sm-7"
-                        data-toggle="tooltip" data-placement="bottom"
-                        title="Click here to clear your search history">Reset <i class="fa fa-refresh"
-                            aria-hidden="true"></i> </button>
+                            data-toggle="tooltip" data-placement="bottom"
+                            title="Click here to clear your search history">Reset <i class="fa fa-refresh"
+                                aria-hidden="true"></i> </button>
                     </div>
                 </form>
             </div>
 
             <!--Weather area CZ-->
-            <div class="col-lg-4 offset-2 weatherBox p-5 col-md-11 text-center"><i class="fa fa-sun-o" aria-hidden="true"></i>
+            <div class="col-lg-4 offset-2 weatherBox p-5 col-md-11 text-center"><i class="fa fa-sun-o"
+                    aria-hidden="true"></i>
 
                 <ul class="list-group list-group-vertical" id="weatherBox"></ul>
             </div>
 
         </div>
 
-        <!--Map area/List Row -->
-        <div class="row m-2 ">
+        <!--Map area/List RowCF -->
+        <div class="row m-2 mainContent">
 
-            <!--Map Div-->
+            <!--Map DivCF-->
             <div class="col-lg-6 m-2 mapBox mr-5 col-md-11" id="mapArea">
                 Map here
             </div>
 
-            <!--List area -->
+            <!--List areaCF -->
             <div class="col-lg-4 offset-1 ml-4 listBox col-md-11">
                 <ol id="listArea">
                 </ol>
@@ -103,31 +107,22 @@
 
         </div>
 
-        <!-- Container element img lives here see CSS. do not move. -->
+        <!-- Parallax rotating images lives here see CSS. do not move this div.KG-->
         <div class="parallax"></div>
-        <div id="imgGallery">
-            <img src="https://commons.wikimedia.org/wiki/File:A651,_Philadelphia_skyline_from_the_Spring_Garden_Street_Bridge,_2018.jpg"
-                alt="philadelphia skyline from spring garden street during the daytime" id="dayTime1" />
-            <img src="https://commons.wikimedia.org/wiki/File:PhiladelphiaMuseumOfArt2017.jpg"
-                alt="philadelphia museum of art during the day" id="dayTime2" />
-            <img src="https://commons.wikimedia.org/wiki/File:Italian_Market_Vegetable_Stand_3000px.jpg"
-                alt="philadelphia italian market during the daytime" id="daytime3" />
-            <img src="https://commons.wikimedia.org/wiki/File:Pats_and_Genos.jpg"
+        <!--This div is to dynamically add the images below-->
+        <!-- <div id="imgGallery">
+            <img src="./images/Philadelphia_skyline_from_the_Spring_Garden_Street_Bridge_2018.jpg"
+                alt="philadelphia skyline from spring garden street during the daytime" class="dayTime1 active" />
+            <img src="" alt="philadelphia museum of art during the day" class="dayTime2" />
+            <img src="" alt="philadelphia italian market during the daytime" class="daytime3" />
+            <img src=""
                 alt="img of philadelphia landmarks pats steaks restaraunt and genos steaks restaurant busy street location at dusk"
-                id="dayTime4" />
-            <img src="https://commons.wikimedia.org/wiki/File:City_hall_Philadelphia.jpg"
-                alt="philadelphia city hall at night light up" id="nightTime1" />
-            <img src="https://commons.wikimedia.org/wiki/File:30th_Street_Station_Philadelphia_July_2016_002_(cropped).jpg"
-                alt="philadelphia 30th street station" id="nightTime2" />
-            <img src="https://commons.wikimedia.org/wiki/File:A358,_Philadelphia,_Pennsylvania,_USA,_Boathouse_Row_at_night,_2009.JPG"
-                alt="philadelphia boathouse row seven house each lit up at nighttime" id="nightTime3" />
-            <img src="https://commons.wikimedia.org/wiki/File:Kimmel_Center_cropped.tif"
-                alt="philadelphia kimmel center lit at night" id="nightTime4" />
-
-        </div>
-
-
-
+                class="dayTime4" />
+            <img src="" alt="philadelphia city hall at night light up" class="nightTime1" />
+            <img src="" alt="philadelphia 30th street station" class="nightTime2" />
+            <img src="" alt="philadelphia boathouse row seven house each lit up at nighttime" class="nightTime3" />
+            <img src="" alt="philadelphia kimmel center lit at night" class="nightTime4" />
+        </div> -->
         <!--Scripts-->
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqROn-JpUPdoFUbby3NZIYMa4WmIn9w0M&callback=initMap"
@@ -141,10 +136,9 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
         <script src="javascript.js"></script>
+        <!--Jquery Functionality for scroll up and our animation when page loadsKG-->
         <script>
             $(document).ready(function () {
-
-
                 $("#navBox").animate({
                     left: 0,
                     opacity: 1
@@ -162,7 +156,7 @@
 
     </main>
     <footer>
-  
+
     </footer>
 </body>
 

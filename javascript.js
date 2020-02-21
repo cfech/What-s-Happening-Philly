@@ -1,19 +1,20 @@
-// declared vars
+// declared varsCF
 var j = 0;
 var APIKey = "20c488e0a9aff750eabd58301c43b3ce";
 var queryURL =
   "https://api.openweathermap.org/data/2.5/weather?q=philadelphia&appid=" +
   APIKey;
 var startDate;
-var marker
+var marker;
 
 itemsArray = [];
-$(document).ready(function () {
-  //Setting Date
-  $("#date").text(moment().format("dddd, MMMM Do"));
+$(document).ready(function() {
+  //Setting DateCF
+  //KATIA BRANCH NOTE-CHANGED MOMENT DATE FORMATKG
+  $("#date").text(moment().format("dddd, MMMM Do YYYY"));
 
-  //reset variables
-  $("#resetBtn").on("click", function () {
+  //reset variablesCF
+  $("#resetBtn").on("click", function() {
     startDate = "";
     endDate = "";
     $(".keywordSearch").addClass("d-none");
@@ -25,8 +26,8 @@ $(document).ready(function () {
     marker.setMap(null);
   });
 
-  //setting date variables and un-hiding search bar
-  $("#endBtn").on("click", function () {
+  //setting date variables and un-hiding search barCF
+  $("#endBtn").on("click", function() {
     event.preventDefault();
     startDate = $("#start-date").val();
     console.log(startDate);
@@ -45,12 +46,10 @@ $(document).ready(function () {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function (response) {
+  }).then(function(response) {
     console.log("TCL: response", response);
     //creation of weather divCF
-    var weatherDiv = $("<div>").addClass(
-      "list-group list-group-vertical"
-    );
+    var weatherDiv = $("<div>").addClass("list-group list-group-vertical");
 
     //creation and setting text of locationDivCF
     var location = response.name;
@@ -92,7 +91,7 @@ $(document).ready(function () {
   // var marker = new google.maps.Marker({
   //   position: myLatLng,
   //   map: map,
-  // });
+  // });CF
   var globalMap;
   function initMap() {
     var myLatLng = { lat: 39.952, lng: -75.165 };
@@ -106,12 +105,8 @@ $(document).ready(function () {
 
   initMap();
 
-
-
-
-
-  //Call ajax function on clik of add-city button
-  $("#add-city").on("click", function () {
+  //Call ajax function on clik of add-city buttonCF
+  $("#add-city").on("click", function() {
     event.preventDefault();
     $("#listArea").empty();
 
@@ -121,7 +116,7 @@ $(document).ready(function () {
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function (response) {
+    }).then(function(response) {
       console.log(response);
       console.log(queryURL);
       var listItems = response._embedded.events;
@@ -151,7 +146,9 @@ $(document).ready(function () {
         var date = listItems[i].dates.start.localDate;
         console.log("TCL: date", date);
         var dateDiv = $("<div>").addClass("dateDiv");
-        dateDiv.text("Date:  " + moment(date, "YYYY-MM-DD").format("MMM Do YYYY"));
+        dateDiv.text(
+          "Date:  " + moment(date, "YYYY-MM-DD").format("MMM Do YYYY")
+        );
 
         var time = listItems[i].dates.start.localTime;
         console.log("TCL: time", time);
@@ -166,29 +163,29 @@ $(document).ready(function () {
         listItem.attr(
           "data-name",
           "<p>" +
-          itemName +
-          "</p><p> Date: " +
-          moment(date, "YYYY-MM-DD").format("MMM Do YYYY") +
-          "   Start Time: " +
-          moment(time, "H").format("hh:mmA") +
-          "</p><p> Venue: " +
-          venue
+            itemName +
+            "</p><p> Date: " +
+            moment(date, "YYYY-MM-DD").format("MMM Do YYYY") +
+            "   Start Time: " +
+            moment(time, "H").format("hh:mmA") +
+            "</p><p> Venue: " +
+            venue
         );
 
         listItem.append(nameDiv, dateDiv, timeDiv, venueDiv);
         console.log("TCL: listItem", listItem);
         $("#listArea").append(listItem);
 
-        //map markers
+        //map markersCF
 
-        // get details
+        // get detailsCF
       }
     });
   });
 
-  $(document).on("click", "li", function () {
+  $(document).on("click", "li", function() {
     console.log("clicked");
-    console.log(marker)
+    console.log(marker);
     if (marker !== undefined) {
       marker.setMap(null);
     }
@@ -199,36 +196,99 @@ $(document).ready(function () {
     marker = new google.maps.Marker({
       position: place,
       map: globalMap
-
     });
 
-    //function for clicking on the marker
+    //function for clicking on the markerCF
     var dataName = $(this).attr("data-name");
     var infoWindow = new google.maps.InfoWindow({
       content: dataName
     });
-    google.maps.event.addListener(marker, "click", function () {
+    google.maps.event.addListener(marker, "click", function() {
       console.log("clicked");
       infoWindow.open(globalMap, marker);
     });
   });
 });
 
-
-// function swapImages(){
-//     var $active = $('#imgGallery .active');
-//     var $next = ($('#imgGallery .active').next().length > 0) ? $('#imgGallery .active').next() : $('#imgGallery img:first');
-//     $active.fadeOut(function(){
-//     $active.removeClass('active');
-//     $next.fadeIn().addClass('active');
-//     });
-//   }
-// ​
-//   $(document).ready(function(){
-//      Run our swapImages() function every 10800secs= every 3 hours daytime to dusk to nighttime
-//     setInterval('swapImages()', 10800);
-//   }
+//deleted swap images functions did not workKG//
+//Functions to rotate bg images throughout the day
+$(document).ready(function() {
+  var bgHour = parseInt(moment().format("k"));
+  switch (bgHour) {
+    case 1:
+    case 2:
+    case 3:
+      $("body")
+        .css(
+          "background-image",
+          'url("./images/Philadelphia_Pennsylvania_USA_Boathouse_Row_at_night_2009.jpg")'
+        )
+        .attr("alt", "Philadelphia Boathouse Row lit up at night");
+      break;
+    case 4:
+    case 5:
+    case 6:
+      $("body")
+        .css(
+          "background-image",
+          'url("./images/imagesPhiladelphiaMuseumOfArt2017.jpg")'
+        )
+        .attr("alt", "Philadelphia Museum of Art lit up at night");
+      break;
+    case 7:
+    case 8:
+    case 9:
+      $("body")
+        .css(
+          "background-image",
+          'url("./images/Philadelphia_skyline_from_the_Spring_Garden_Street_Bridge_2018.jpg")'
+        )
+        .attr("alt", "Philadelphia skyline from Spring Garden St Bridge");
+      break;
+    case 10:
+    case 11:
+    case 12:
+      $("body")
+        .css("background-image", 'url("./images/Pats_and_Genos.jpg")')
+        .attr(
+          "alt",
+          "corner of Philly street featuring Pats and Geno's steaks restaraunts"
+        );
+      break;
+    case 13:
+    case 14:
+    case 15:
+      $("body")
+        .css("background-image", 'url("./images/City_hall_Philadelphia.jpg")')
+        .attr("alt", "Philly City Hall in the afternoon");
+      break;
+    case 16:
+    case 17:
+    case 18:
+      $("body")
+        .css("background-image", 'url("./images/Kimmel_Center_cropped.jpg")')
+        .attr("alt", "Kimmel Center lit at night");
+      break;
+    case 19:
+    case 20:
+    case 21:
+      $("body")
+        .css("background-image", 'url("./images/City_hall_Philadelphia.jpg")')
+        .attr("alt", "Philly City Hall lit at night");
+      break;
+    case 22:
+    case 23:
+    case 24:
+      $("body")
+        .css(
+          "background-image",
+          'url("./images/30th_Street_Station_Philadelphia_July_2016_002.jpg")'
+        )
+        .attr("alt", "Philly 30th Street Station at night");
+  }
+  console.log(bgHour);
+});
 // <---CZ-->
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
