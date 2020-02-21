@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
-
+    
+    
     <title>Event Location</title>
 </head>
 
@@ -96,18 +95,20 @@
 
         <!-- Container element img lives here see CSS. do not move. -->
         <div class="parallax"></div>
+        <div id="imgGallery">
+            <img src="https://commons.wikimedia.org/wiki/File:A651,_Philadelphia_skyline_from_the_Spring_Garden_Street_Bridge,_2018.jpg" alt="philadelphia skyline from spring garden street during the daytime" id="dayTime1" />
+            <img src="https://commons.wikimedia.org/wiki/File:PhiladelphiaMuseumOfArt2017.jpg" alt="philadelphia museum of art during the day" id="dayTime2" />
+           <img src="https://commons.wikimedia.org/wiki/File:Italian_Market_Vegetable_Stand_3000px.jpg" alt="philadelphia italian market during the daytime" id="daytime3" />
+           <img src="https://commons.wikimedia.org/wiki/File:Pats_and_Genos.jpg" alt="img of philadelphia landmarks pats steaks restaraunt and genos steaks restaurant busy street location at dusk" id="dayTime4" />
+            <img src="https://commons.wikimedia.org/wiki/File:City_hall_Philadelphia.jpg" alt="philadelphia city hall at night light up"id="nightTime1" />
+           <img src="https://commons.wikimedia.org/wiki/File:30th_Street_Station_Philadelphia_July_2016_002_(cropped).jpg" alt="philadelphia 30th street station" id="nightTime2" />
+            <img src="https://commons.wikimedia.org/wiki/File:A358,_Philadelphia,_Pennsylvania,_USA,_Boathouse_Row_at_night,_2009.JPG" alt="philadelphia boathouse row seven house each lit up at nighttime" id="nightTime3" />
+            <img src="https://commons.wikimedia.org/wiki/File:Kimmel_Center_cropped.tif" alt="philadelphia kimmel center lit at night" id="nightTime4" />
 
-        <!--Map call hardc coded for philly and zoom-->
-        <script>
-            var map;
-            function initMap() {
-                map = new google.maps.Map(document.getElementById('mapArea'), {
-                    center: { lat: 39.952, lng: -75.165 },
-                    zoom: 11
-                });
-            }
-        </script>
+          </div>
+        
 
+        
         <!--Scripts-->
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqROn-JpUPdoFUbby3NZIYMa4WmIn9w0M&callback=initMap"
@@ -115,6 +116,24 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="javascript.js"></script>
+        <script>
+            $(document).ready(function () {
+
+
+                $("#navBox").animate({
+                    left: 0,
+                    opacity: 1
+                }, 1000, function () {
+                });
+                $(".mainContent").animate({
+                    left: 0,
+                    opacity: 1
+                }, 1000)
+                // $("html, body").animate({
+                //     scrollTop: 0
+                // }, 1000)
+            })
+        </script>
 
     </main>
     <footer>
