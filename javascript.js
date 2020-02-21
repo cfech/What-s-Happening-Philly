@@ -231,9 +231,9 @@ $(document).ready(function() {
       $("body")
         .css(
           "background-image",
-          'url("./images/imagesPhiladelphiaMuseumOfArt2017.jpg")'
+          'url("./images/PhiladelphiaMuseumOfArt2017.jpg")'
         )
-        .attr("alt", "Philadelphia Museum of Art lit up at night");
+        .attr("alt", "Philadelphia Museum of Art during the day");
       break;
     case 7:
     case 8:
