@@ -179,3 +179,18 @@ li {
   font-size: 16px;
   opacity: 50%;
 }
+
+/* #imgGallery{
+  position:relative;
+  width:400px;  Set your image width full cover parallax
+  height:300px; Set your image height
+}
+#imgGallery img{
+  display:none;
+  position:absolute;
+  top:0;
+  left:0;
+}
+#imgGallery img.active{
+  display:block;
+} */
