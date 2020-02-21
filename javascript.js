@@ -204,80 +204,76 @@ $(document).ready(function() {
 
 //deleted swap images functions did not workKG//
 
-// $(document).ready(function() {
-//   var bgHour = parseInt(moment().format("k"));
-//   switch (bgHour) {
-//     case 1:
-//     case 2:
-//     case 3:
-//       $("body")
-//         .css(
-//           "background-image" 'url(
-//             "./images/Philadelphia_Pennsylvania_USA_Boathouse_Row_at_night_2009.jpg"
-//           )')
-//         .attr("alt", "blahblahblah");
-//       break;
-//     case 4:
-//     case 5:
-//     case 6:
-//       $("body")
-//         .css(
-//           "background-image" 'url("./images/imagesPhiladelphiaMuseumOfArt2017.jpg")'
-//         )
-//         .attr("alt", "blahblahblah");
-//       break;
-//     case 7:
-//     case 8:
-//     case 9:
-//       $("body")
-//         .css(
-//           "background-image",
-//           'url("./images/Philadelphia_skyline_from_the_Spring_Garden_Street_Bridge_2018.jpg")'
-//         )
-//         .attr("alt", "blahblahblah");
-//       break;
-//     case 10:
-//     case 11:
-//     case 12:
-//       $("body")
-//         .css("background-image", 'url("./images/Pats_and_Genos.jpg")')
-//         .attr("alt", "blahblahblah");
-//       break;
-//     case 13:
-//     case 14:
-//     case 15:
-//       $("body")
-//         .css("background-image", 'url("./images/City_hall_Philadelphia.jpg")')
-//         .attr("alt", "blahblahblah");
-//       break;
-//     case 16:
-//     case 17:
-//     case 18:
-//       $("body")
-//         .css({
-//           backgroundImage: url("./images/Kimmel_Center_cropped.jpg")
-//         })
-//         .attr("alt", "blahblahblah");
-//       break;
-//     case 19:
-//     case 20:
-//     case 21:
-//       $("body")
-//         .css({
-//           backgroundImage: url("./images/City_hall_Philadelphia.jpg")
-//         })
-//         .attr("alt", "blahblahblah");
-//       break;
-//     case 22:
-//     case 23:
-//     case 24:
-//       $("body")
-//         .css({
-//           backgroundImage: url(
-//             "./images/30th_Street_Station_Philadelphia_July_2016_002.jpg"
-//           )
-//         })
-//         .attr("alt", "blahblahblah");
-//   }
-//   console.log(bgHour);
-// });
+$(document).ready(function() {
+  var bgHour = parseInt(moment().format("k"));
+  switch (bgHour) {
+    case 1:
+    case 2:
+    case 3:
+      $("body")
+        .css(
+          "background-image",
+          'url("./images/Philadelphia_Pennsylvania_USA_Boathouse_Row_at_night_2009.jpg")'
+        )
+        .attr("alt", "blahblahblah");
+      break;
+    case 4:
+    case 5:
+    case 6:
+      $("body")
+        .css(
+          "background-image",
+          'url("./images/imagesPhiladelphiaMuseumOfArt2017.jpg")'
+        )
+        .attr("alt", "blahblahblah");
+      break;
+    case 7:
+    case 8:
+    case 9:
+      $("body")
+        .css(
+          "background-image",
+          'url("./images/Philadelphia_skyline_from_the_Spring_Garden_Street_Bridge_2018.jpg")'
+        )
+        .attr("alt", "blahblahblah");
+      break;
+    case 10:
+    case 11:
+    case 12:
+      $("body")
+        .css("background-image", 'url("./images/Pats_and_Genos.jpg")')
+        .attr("alt", "blahblahblah");
+      break;
+    case 13:
+    case 14:
+    case 15:
+      $("body")
+        .css("background-image", 'url("./images/City_hall_Philadelphia.jpg")')
+        .attr("alt", "blahblahblah");
+      break;
+    case 16:
+    case 17:
+    case 18:
+      $("body")
+        .css("background-image", 'url("./images/Kimmel_Center_cropped.jpg")')
+        .attr("alt", "blahblahblah");
+      break;
+    case 19:
+    case 20:
+    case 21:
+      $("body")
+        .css("background-image", 'url("./images/City_hall_Philadelphia.jpg")')
+        .attr("alt", "blahblahblah");
+      break;
+    case 22:
+    case 23:
+    case 24:
+      $("body")
+        .css(
+          "background-image",
+          'url("./images/30th_Street_Station_Philadelphia_July_2016_002.jpg")'
+        )
+        .attr("alt", "blahblahblah");
+  }
+  console.log(bgHour);
+});
