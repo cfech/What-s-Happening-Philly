@@ -108,7 +108,7 @@ li {
 .listBox {
   overflow-y: scroll;
   background-color: blue;
-  height: 500px;
+  height: 400px;
 }
 
 /* CZ Hide scrollbar for Chrome, Safari and Opera */
