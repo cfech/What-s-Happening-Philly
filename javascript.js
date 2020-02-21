@@ -7,12 +7,12 @@ var queryURL =
 var startDate;
 
 itemsArray = [];
-$(document).ready(function() {
+$(document).ready(function () {
   //Setting Date
   $("#date").text(moment().format("dddd, MMMM Do"));
 
   //reset variables
-  $("#resetBtn").on("click", function() {
+  $("#resetBtn").on("click", function () {
     startDate = "";
     endDate = "";
     $(".keywordSearch").addClass("d-none");
@@ -24,7 +24,7 @@ $(document).ready(function() {
   });
 
   //setting date variables and un-hiding search bar
-  $("#endBtn").on("click", function() {
+  $("#endBtn").on("click", function () {
     event.preventDefault();
     startDate = $("#start-date").val();
     console.log(startDate);
@@ -39,63 +39,50 @@ $(document).ready(function() {
     }
   });
 
-  // ajax call for weather
+  // ajax call for weatherCF
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log("TCL: response", response);
-    //creation of weather div
-    var weatherDiv = $("<div>").addClass("list-group list-group-horizontal");
+    //creation of weather divCF
+    var weatherDiv = $("<div>").addClass(
+      "list-group list-group-vertical"
+    );
 
-    //creation and setting text of locationDiv
+    //creation and setting text of locationDivCF
     var location = response.name;
     console.log("TCL: location", location);
-    var locationDiv = $("<li>").addClass("locationDiv list-group-item mr-2");
+    var locationDiv = $("<div>").addClass("locationDiv mr-2");
     locationDiv.text(location);
 
-    //creation and setting text of weatherConditionDiv
+    //creation and setting text of weatherConditionDivCF
     var weatherCondition = response.weather[0].main;
     console.log("TCL: weather", weatherCondition);
-    var weatherConditionDiv = $("<h3>").addClass(
-      "weatherCondition text-dark demo-1 mr-2"
+    var weatherConditionDiv = $("<div>").addClass(
+      "weatherCondition text-dark mr-2"
     );
     weatherConditionDiv.text("Condition :  " + weatherCondition);
 
-    //creation and setting text of tempDiv
+    //creation and setting text of tempDivCF
     var tempKelvin = response.main.temp;
     var tempF = (tempKelvin - 273.5) * 1.8 + 32;
     console.log("TCL: tempF", tempF);
-    var tempDiv = $("<h3>").addClass("tempDiv tempDiv mr-2");
+    var tempDiv = $("<div>").addClass("tempDiv tempDiv mr-2");
     tempDiv.text("Temp: " + tempF.toFixed(2) + " °F");
 
-    //creation and setting text of humidityDiv
+    //creation and setting text of humidityDivCF
     var humidity = response.main.humidity;
     console.log("TCL: humidity", humidity);
-    var humidityDiv = $("<h3>").addClass("humidityDiv demo-1 mr-2");
+    var humidityDiv = $("<div>").addClass("humidityDiv mr-2");
     humidityDiv.text("Humidity: " + humidity + "%");
 
-    //appending all divs to the page
-    //Find here****************
-    var TotalWeatherDataStr = [
-      "Condition :  " +
-        weatherCondition +
-        " " +
-        "Temp: " +
-        tempF.toFixed(2) +
-        " °F" +
-        "Humidity: " +
-        humidity +
-        "%"
-    ];
-    //   weatherDiv.append(weatherConditionDiv, tempDiv, humidityDiv);
-    var weatherTickerDiv = $("<h3>").addClass(
-      "weatherTicker text-dark demo-1 mr-2"
-    );
-    weatherTickerDiv.text(TotalWeatherDataStr);
-    $("#weatherBox").append(weatherTickerDiv);
-  });
+    //appending all divs to the pageCFDELETE THIS COMMENT
+    //this string is for the weather dashboard animationKG
 
+    weatherDiv.append(locationDiv, weatherConditionDiv, tempDiv, humidityDiv);
+    $("#weatherBox").append(weatherDiv);
+  });
   // var myLatLng = {lat: -39.952 , lng:-75.165  };
   // var map = new google.maps.Map(document.getElementById('mapArea'), {
   // });
@@ -117,7 +104,7 @@ $(document).ready(function() {
   initMap();
 
   //Call ajax function on clik of add-city button
-  $("#add-city").on("click", function() {
+  $("#add-city").on("click", function () {
     event.preventDefault();
     $("#listArea").empty();
 
@@ -127,7 +114,7 @@ $(document).ready(function() {
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
       console.log(response);
       console.log(queryURL);
       var listItems = response._embedded.events;
@@ -172,13 +159,13 @@ $(document).ready(function() {
         listItem.attr(
           "data-name",
           "<p>" +
-            itemName +
-            "</p><p> Date: " +
-            date +
-            "   Start Time: " +
-            time +
-            "</p><p> Venue: " +
-            venue
+          itemName +
+          "</p><p> Date: " +
+          date +
+          "   Start Time: " +
+          time +
+          "</p><p> Venue: " +
+          venue
         );
 
         listItem.append(nameDiv, dateDiv, timeDiv, venueDiv);
@@ -192,7 +179,7 @@ $(document).ready(function() {
     });
   });
 
-  $(document).on("click", "li", function() {
+  $(document).on("click", "li", function () {
     console.log("clicked");
     console.log($(this));
     var dataLatitude = parseFloat($(this).attr("data-lat"));
@@ -208,7 +195,7 @@ $(document).ready(function() {
     var infoWindow = new google.maps.InfoWindow({
       content: dataName
     });
-    google.maps.event.addListener(marker, "click", function() {
+    google.maps.event.addListener(marker, "click", function () {
       console.log("clicked");
       infoWindow.open(globalMap, marker);
     });
