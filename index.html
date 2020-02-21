@@ -30,46 +30,50 @@
 
             <!--Searchbox div-->
             <div class="col-lg-3 col-md-11 searchBox">
+                <form id="searchForm">
+                    <!--Keyword Search div-->
+                    <section class="row d-none keywordSearch mt-2 justify-content-center">
+                        <input type="text" id="event-search" class="col-7 "><br>
+                    </section>
 
-                <!--Keyword Search div-->
-                <form class="row d-none keywordSearch mt-2 justify-content-center">
-                    <input type="text" id="event-search" class="col-7 "><br>
-                    <input id="add-city" type="submit" value="" class="col-1 searchButton" ß>
-                </form>
+                    <!--Start date dive-->
+                    <section class="mt-2 input-group">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
+                        </div>
+                        <input type="date" id="start-date" class="form-control">
 
-                <!--Start date dive-->
-                <form class="mt-2 input-group">
-                    <div class="input-group-prepend">
-                        <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
+                    </section>
+
+                    <!--End date Div -->
+                    <section class="mt-2 input-group">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
+                        </div>
+                        <input type="date" id="end-date" class="form-control"><br>
+
+                    </section>
+                    <!--Error row-->
+                    <div class="row justify-content-center d-none mt-2" id="errorRow">
+                        <p class="errorMessage">*Please select a date</p>
                     </div>
-                    <input type="date" id="start-date" class="form-control">
 
-                </form>
 
-                <!--End date Div -->
-                <form class="mt-2 input-group">
-                    <div class="input-group-prepend">
-                        <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
+                    <section class="row d-none keywordSearch mt-2 justify-content-center">
+                        <input id="add-city" type="submit" value="" class="col-1 searchButton" ß>
+                    </section>
+
+                    <!--Go button div-->
+                    <div class="row justify-content-center">
+                        <button id="endBtn" type="submit" class="col-lg-4 searchButton mt-3 col-sm-7"> Go <i
+                                class="fa fa-search" aria-hidden="true"></i> </button>
                     </div>
-                    <input type="date" id="end-date" class="form-control"><br>
-
+                    <!--Reset Button -->
+                    <div class="row justify-content-center">
+                        <button id="resetBtn" type="reset" class="col-lg-4 searchButton mt-3 col-sm-7">Reset<i
+                                class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
                 </form>
-                <!--Error row-->
-                <div class="row justify-content-center d-none mt-2" id="errorRow">
-                    <p class="errorMessage">*Please select a date</p>
-                </div>
-
-                <!--Go button div-->
-                <div class="row justify-content-center">
-                    <button id="endBtn" type="submit" class="col-lg-4 searchButton mt-3 col-sm-7"> Go <i
-                            class="fa fa-search" aria-hidden="true"></i> </button>
-                </div>
-                <!--Reset Button -->
-                <div class="row justify-content-center">
-                    <button id="resetBtn" type="submit" class="col-lg-4 searchButton mt-3 col-sm-7">Reset<i
-                            class="fa fa-search" aria-hidden="true"></i></button>
-                </div>
-
             </div>
 
             <!--Weather area -->

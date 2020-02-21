@@ -5,6 +5,7 @@ var queryURL =
   "https://api.openweathermap.org/data/2.5/weather?q=philadelphia&appid=" +
   APIKey;
 var startDate;
+var marker
 
 itemsArray = [];
 $(document).ready(function() {
@@ -21,6 +22,7 @@ $(document).ready(function() {
     $("#start-date").val("mm/dd/yyyy");
     $("#end-date").val("mm/dd/yyyy");
     $("#errorRow").addClass("d-none");
+    marker.setMap(null);
   });
 
   //setting date variables and un-hiding search bar
@@ -116,6 +118,10 @@ $(document).ready(function() {
 
   initMap();
 
+
+
+
+
   //Call ajax function on clik of add-city button
   $("#add-city").on("click", function() {
     event.preventDefault();
@@ -194,13 +200,18 @@ $(document).ready(function() {
 
   $(document).on("click", "li", function() {
     console.log("clicked");
+    console.log(marker)
+    if (marker !== undefined){
+    marker.setMap(null);
+    }
     console.log($(this));
     var dataLatitude = parseFloat($(this).attr("data-lat"));
     var dataLongitude = parseFloat($(this).attr("data-lon"));
     var place = { lat: dataLatitude, lng: dataLongitude };
-    var marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
       position: place,
       map: globalMap
+
     });
 
     //function for clicking on the marker
@@ -214,6 +225,7 @@ $(document).ready(function() {
     });
   });
 });
+
 
 // function swapImages(){
 //     var $active = $('#imgGallery .active');
