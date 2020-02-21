@@ -132,18 +132,7 @@ h1 {
   }
 }
 
-/* @keyframes weatherScroll {
-  0% {
-    background: none;
-    left: 0px;
-    top: 0px;
-  }
-  100% {
-    background: yellow;
-    left: 500px;
-    top: 0px;
-  }
-} */
+
 
 footer {
   background-color: #12125e;
