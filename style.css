@@ -64,10 +64,14 @@ h1 {
   top: 15px;
 }
 
+/* CZ curved border & changed background color */
+
 .weatherBox {
   border: 2px solid #12125e;
-  background-color: #ffe700;
-  background: none;
+  background: rgba(244, 230, 191, 0.639) !important;
+  border-radius: 15px;
+  font-family: "Oswald", sans-serif;
+  font-size: 24px !important;
 }
 
 /* #weatherBox {
@@ -93,10 +97,12 @@ footer {
 li {
   border: black;
   border: solid;
-  border-width: 2px;
+  border-radius: 12px;
+  border-width: 3px;
   padding: 5px;
   margin: 5px;
   background-color: white;
+  font-family: "Oswald", sans-serif;
 }
 
 .listBox {
@@ -105,10 +111,62 @@ li {
   height: 500px;
 }
 
+/* CZ Hide scrollbar for Chrome, Safari and Opera */
+.listBox::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* CZ Hide scrollbar for IE and Edge */
+.listBox {
+  -ms-overflow-style: none !important;
+}
+/* <---CZ---> */
+
 #endBtn {
   height: 30px;
+  border-radius: 12px;
 }
+/* <---CZ---> */
+#resetBtn {
+  height: 30px;
+  border-radius: 12px;
+}
+
+#add-city {
+  height: 30px;
+  border-radius: 12px;
+}
+
+/* <---CZ---> */
 .errorMessage {
   font-size: 16px;
-  opacity: 50%;
+  color: blue;
+  font-weight: bold;
 }
+/* <---CZ---> */
+#listArea {
+  padding: 0;
+  margin: 0;
+  margin-left: 40px;
+}
+#listArea {
+  line-height: 30px;
+  list-style-type: none;
+}
+#listArea li:before {
+  font-family: FontAwesome;
+  font-size: 30px;
+  position: absolute;
+  margin-left: -40px;
+  content: "\f041";
+  color: #12125e;
+}
+/* 
+#listArea  { 
+  font-family: "Oswald", sans-serif;
+  border-radius: 12px;
+  background-color: currentColor;
+  margin-top: 10px !important;
+
+} */
+/* <--CZ--> */

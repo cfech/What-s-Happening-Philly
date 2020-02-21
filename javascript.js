@@ -5,6 +5,7 @@ var queryURL =
   "https://api.openweathermap.org/data/2.5/weather?q=philadelphia&appid=" +
   APIKey;
 var startDate;
+var marker;
 
 itemsArray = [];
 $(document).ready(function() {
@@ -22,6 +23,7 @@ $(document).ready(function() {
     $("#start-date").val("mm/dd/yyyy");
     $("#end-date").val("mm/dd/yyyy");
     $("#errorRow").addClass("d-none");
+    marker.setMap(null);
   });
 
   //setting date variables and un-hiding search barCF
@@ -144,12 +146,14 @@ $(document).ready(function() {
         var date = listItems[i].dates.start.localDate;
         console.log("TCL: date", date);
         var dateDiv = $("<div>").addClass("dateDiv");
-        dateDiv.text("Date:  " + date);
+        dateDiv.text(
+          "Date:  " + moment(date, "YYYY-MM-DD").format("MMM Do YYYY")
+        );
 
         var time = listItems[i].dates.start.localTime;
         console.log("TCL: time", time);
         var timeDiv = $("<div>").addClass("timeDiv");
-        timeDiv.text("Start Time: " + time);
+        timeDiv.text("Start Time: " + moment(time, "H").format("hh:mmA"));
 
         var venue = listItems[i]._embedded.venues[0].name;
         console.log("TCL: venue", venue);
@@ -161,9 +165,9 @@ $(document).ready(function() {
           "<p>" +
             itemName +
             "</p><p> Date: " +
-            date +
+            moment(date, "YYYY-MM-DD").format("MMM Do YYYY") +
             "   Start Time: " +
-            time +
+            moment(time, "H").format("hh:mmA") +
             "</p><p> Venue: " +
             venue
         );
@@ -181,11 +185,15 @@ $(document).ready(function() {
 
   $(document).on("click", "li", function() {
     console.log("clicked");
+    console.log(marker);
+    if (marker !== undefined) {
+      marker.setMap(null);
+    }
     console.log($(this));
     var dataLatitude = parseFloat($(this).attr("data-lat"));
     var dataLongitude = parseFloat($(this).attr("data-lon"));
     var place = { lat: dataLatitude, lng: dataLongitude };
-    var marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
       position: place,
       map: globalMap
     });
@@ -279,4 +287,8 @@ $(document).ready(function() {
         .attr("alt", "Philly 30th Street Station at night");
   }
   console.log(bgHour);
+});
+// <---CZ-->
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip();
 });
