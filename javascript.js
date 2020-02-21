@@ -47,19 +47,19 @@ $(document).ready(function() {
   }).then(function(response) {
     console.log("TCL: response", response);
     //creation of weather divCF
-    var weatherDiv = $("<div>").addClass("list-group list-group-horizontal");
+    var weatherDiv = $("<div>").addClass("list-group list-group-vertical");
 
     //creation and setting text of locationDivCF
     var location = response.name;
     console.log("TCL: location", location);
-    var locationDiv = $("<li>").addClass("locationDiv list-group-item mr-2");
+    var locationDiv = $("<div>").addClass("locationDiv mr-2");
     locationDiv.text(location);
 
     //creation and setting text of weatherConditionDivCF
     var weatherCondition = response.weather[0].main;
     console.log("TCL: weather", weatherCondition);
-    var weatherConditionDiv = $("<h3>").addClass(
-      "weatherCondition text-dark demo-1 mr-2"
+    var weatherConditionDiv = $("<div>").addClass(
+      "weatherCondition text-dark mr-2"
     );
     weatherConditionDiv.text("Condition :  " + weatherCondition);
 
@@ -67,35 +67,20 @@ $(document).ready(function() {
     var tempKelvin = response.main.temp;
     var tempF = (tempKelvin - 273.5) * 1.8 + 32;
     console.log("TCL: tempF", tempF);
-    var tempDiv = $("<h3>").addClass("tempDiv tempDiv mr-2");
+    var tempDiv = $("<div>").addClass("tempDiv tempDiv mr-2");
     tempDiv.text("Temp: " + tempF.toFixed(2) + " °F");
 
     //creation and setting text of humidityDivCF
     var humidity = response.main.humidity;
     console.log("TCL: humidity", humidity);
-    var humidityDiv = $("<h3>").addClass("humidityDiv demo-1 mr-2");
+    var humidityDiv = $("<div>").addClass("humidityDiv mr-2");
     humidityDiv.text("Humidity: " + humidity + "%");
 
     //appending all divs to the pageCFDELETE THIS COMMENT
     //this string is for the weather dashboard animationKG
-    var TotalWeatherDataStr = [
-      "Condition :  " +
-        weatherCondition +
-        " " +
-        "Temp: " +
-        tempF.toFixed(2) +
-        " °F" +
-        "Humidity: " +
-        humidity +
-        "%"
-    ];
-    //  replaced weatherDiv.append(weatherConditionDiv, tempDiv, humidityDiv);DELETE THIS COMMENTKG
-    //THIS CODE IS FOR WEATHER DASHBOARD ANIMATION
-    var weatherTickerDiv = $("<h3>").addClass(
-      "weatherTicker text-dark demo-1 mr-2"
-    );
-    weatherTickerDiv.text(TotalWeatherDataStr);
-    $("#weatherBox").append(weatherTickerDiv);
+
+    weatherDiv.append(locationDiv, weatherConditionDiv, tempDiv, humidityDiv);
+    $("#weatherBox").append(weatherDiv);
   });
 
   // var myLatLng = {lat: -39.952 , lng:-75.165  };
@@ -217,39 +202,82 @@ $(document).ready(function() {
   });
 });
 
-// function swapImages(){
-//     var $active = $('#imgGallery .active');
-//     var $next = ($('#imgGallery .active').next().length > 0) ? $('#imgGallery .active').next() : $('#imgGallery img:first');
-//     $active.fadeOut(function(){
-//     $active.removeClass('active');
-//     $next.fadeIn().addClass('active');
-//     });
-//   }
-// ​
-//
-//      Run our swapImages() function every 10800secs= every 3 hours daytime to dusk to nighttime
-//     setInterval('swapImages()', 10800);
-//   }KG
+//deleted swap images functions did not workKG//
 
-$(document).ready(function() {
-  var bgHour = parseInt(moment().format("k"));
-  switch (bgHour) {
-    case 1:
-    case 2:
-    case 3:
-      $("body").css({
-        backgroundImage:
-          "./images/Philadelphia_Pennsylvania_USA_Boathouse_Row_at_night_2009.jpg"
-      });
-      break;
-    case 4:
-    case 5:
-    case 6:
-      $("body")
-        .css({
-          backgroundImage: "./images/imagesPhiladelphiaMuseumOfArt2017.jpg"
-        })
-        .attr(alt, "blahblahblah");
-  }
-  console.log(bgHour);
-});
+// $(document).ready(function() {
+//   var bgHour = parseInt(moment().format("k"));
+//   switch (bgHour) {
+//     case 1:
+//     case 2:
+//     case 3:
+//       $("body")
+//         .css(
+//           "background-image" 'url(
+//             "./images/Philadelphia_Pennsylvania_USA_Boathouse_Row_at_night_2009.jpg"
+//           )')
+//         .attr("alt", "blahblahblah");
+//       break;
+//     case 4:
+//     case 5:
+//     case 6:
+//       $("body")
+//         .css(
+//           "background-image" 'url("./images/imagesPhiladelphiaMuseumOfArt2017.jpg")'
+//         )
+//         .attr("alt", "blahblahblah");
+//       break;
+//     case 7:
+//     case 8:
+//     case 9:
+//       $("body")
+//         .css(
+//           "background-image",
+//           'url("./images/Philadelphia_skyline_from_the_Spring_Garden_Street_Bridge_2018.jpg")'
+//         )
+//         .attr("alt", "blahblahblah");
+//       break;
+//     case 10:
+//     case 11:
+//     case 12:
+//       $("body")
+//         .css("background-image", 'url("./images/Pats_and_Genos.jpg")')
+//         .attr("alt", "blahblahblah");
+//       break;
+//     case 13:
+//     case 14:
+//     case 15:
+//       $("body")
+//         .css("background-image", 'url("./images/City_hall_Philadelphia.jpg")')
+//         .attr("alt", "blahblahblah");
+//       break;
+//     case 16:
+//     case 17:
+//     case 18:
+//       $("body")
+//         .css({
+//           backgroundImage: url("./images/Kimmel_Center_cropped.jpg")
+//         })
+//         .attr("alt", "blahblahblah");
+//       break;
+//     case 19:
+//     case 20:
+//     case 21:
+//       $("body")
+//         .css({
+//           backgroundImage: url("./images/City_hall_Philadelphia.jpg")
+//         })
+//         .attr("alt", "blahblahblah");
+//       break;
+//     case 22:
+//     case 23:
+//     case 24:
+//       $("body")
+//         .css({
+//           backgroundImage: url(
+//             "./images/30th_Street_Station_Philadelphia_July_2016_002.jpg"
+//           )
+//         })
+//         .attr("alt", "blahblahblah");
+//   }
+//   console.log(bgHour);
+// });
