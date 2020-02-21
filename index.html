@@ -30,54 +30,53 @@
 
             <!--Searchbox div  CZ-->
             <div class="col-lg-4 offset-1 col-md-11 searchBox">
-
-                <!--Keyword Search div CZ CHANGED-->
-                <form class="row d-none keywordSearch mt-2 justify-content-center"> 
-                    <input type="text" id="event-search" class="col-9" placeholder="ex. music, Eagles, etc."data-toggle="tooltip" data-placement="top"
+                <form id="searchForm">
+                    <!--Keyword Search div-->
+                    <section class="row d-none keywordSearch mt-2 justify-content-center">
+                        <input type="text" id="event-search" class="col-9" placeholder="ex. music, Eagles, etc."data-toggle="tooltip" data-placement="top"
                     title="Keyword search"><br>
-                </form>
+                    </section>
 
-                <!--Start date dive-->
-                <form class="mt-2 input-group">
-                    <div class="input-group-prepend">
-                        <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
+                    <!--Start date dive-->
+                    <section class="mt-2 input-group">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
+                        </div>
+                        <input type="date" id="start-date" class="form-control" data-toggle="tooltip" data-placement="top"
+                            title="Choose a date range before choosing event type">
+                    </section>
+
+                    <!--End date Div -->
+                    <section class="mt-2 input-group">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
+                        </div>
+                        <input type="date" id="end-date" class="form-control"><br>
+
+                    </section>
+                    <!--Error row-->
+                    <div class="row justify-content-center d-none mt-2" id="errorRow">
+                        <p class="errorMessage">*Please select a date</p>
                     </div>
-                    <input type="date" id="start-date" class="form-control" data-toggle="tooltip" data-placement="top"
-                        title="Choose a date range before choosing event type">
 
-                </form>
 
-                <!--End date Div -->
-                <form class="mt-2 input-group">
-                    <div class="input-group-prepend">
-                        <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
+                    <section class="row d-none keywordSearch mt-2 justify-content-center">
+                        <button id="add-city" type="submit" value="" class="col-4 searchButton">Go <i class="fa fa-search" aria-hidden="true"></i></button>
+                    </section>
+
+                    <!--Go button div-->
+                    <div class="row justify-content-center">
+                        <button id="endBtn" type="submit" class="col-lg-4 searchButton mt-3 col-sm-7"> Go <i
+                                class="fa fa-search" aria-hidden="true"></i> </button>
                     </div>
-                    <input type="date" id="end-date" class="form-control"><br>
-
-                </form>
-                <!--Error row CZ CHANGED-->
-                <div class="row justify-content-center d-none mt-2" id="errorRow">
-                    <p class="errorMessage">*Please select a date!</p>
-                </div>
-
-                <form class="row d-none keywordSearch mt-2 justify-content-center">
-                    <button id="add-city" type="submit" value="" class="col-5 searchButton" ß><i class="fa fa-search"
-                        aria-hidden="true"></i></button> 
-                </form>
-
-                <!--Go button div-->
-                <div class="row justify-content-center">
-                    <button id="endBtn" type="submit" class="col-lg-5 searchButton mt-3 col-sm-7"> Go <i
-                            class="fa fa-search" aria-hidden="true"></i> </button>
-                </div>
-                <!--Reset Button CZ CHANGED-->
-                <div class="row justify-content-center">
-                    <button id="resetBtn" type="submit" class="col-lg-5 searchButton mt-3 col-sm-7"
+                    <!--Reset Button -->
+                    <div class="row justify-content-center">
+                        <button id="resetBtn" type="reset" class="col-lg-4 searchButton mt-3 col-sm-7"
                         data-toggle="tooltip" data-placement="bottom"
                         title="Click here to clear your search history">Reset <i class="fa fa-refresh"
                             aria-hidden="true"></i> </button>
-                </div>
-
+                    </div>
+                </form>
             </div>
 
             <!--Weather area CZ-->
@@ -163,7 +162,7 @@
 
     </main>
     <footer>
-        some stuff
+  
     </footer>
 </body>
 

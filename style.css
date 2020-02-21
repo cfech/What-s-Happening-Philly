@@ -24,10 +24,7 @@ body {
   opacity: 0;
 }
 
-#navBox,
-.searchBox,
-.listBox,
-.mapBox {
+#navBox, .searchBox, .listBox, .mapBox {
   border: 2px solid #12125e;
   background: rgba(244, 230, 191, 0.639) !important;
   border-radius: 15px;
