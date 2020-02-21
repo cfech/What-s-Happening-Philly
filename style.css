@@ -134,14 +134,10 @@ h1 {
 
 /* @keyframes weatherScroll {
   0% {
-    background: none;
-    left: 0px;
-    top: 0px;
+    -webkit-transform: translateX(100%);
   }
   100% {
-    background: yellow;
-    left: 500px;
-    top: 0px;
+    -webkit-transform: translateX(-100%);
   }
 } */
 
