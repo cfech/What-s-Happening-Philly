@@ -160,9 +160,10 @@ $(document).ready(function() {
         dateDiv.text("Date:  " + date);
 
         var time = listItems[i].dates.start.localTime;
+        console.log(moment(time, "H").format("hh:mmA"));
         console.log("TCL: time", time);
         var timeDiv = $("<div>").addClass("timeDiv");
-        timeDiv.text("Start Time: " + time);
+        timeDiv.text("Start Time: " + moment(time, "H").format("hh:mmA"));
 
         var venue = listItems[i]._embedded.venues[0].name;
         console.log("TCL: venue", venue);
@@ -176,10 +177,12 @@ $(document).ready(function() {
             "</p><p> Date: " +
             date +
             "   Start Time: " +
-            time +
+            moment(time, "H").format("hh:mmA") +
             "</p><p> Venue: " +
             venue
         );
+
+      
 
         listItem.append(nameDiv, dateDiv, timeDiv, venueDiv);
         console.log("TCL: listItem", listItem);
