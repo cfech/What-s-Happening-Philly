@@ -226,7 +226,30 @@ $(document).ready(function() {
 //     });
 //   }
 // ​
-//   $(document).ready(function(){
+//
 //      Run our swapImages() function every 10800secs= every 3 hours daytime to dusk to nighttime
 //     setInterval('swapImages()', 10800);
 //   }KG
+
+$(document).ready(function() {
+  var bgHour = parseInt(moment().format("k"));
+  switch (bgHour) {
+    case 1:
+    case 2:
+    case 3:
+      $("body").css({
+        backgroundImage:
+          "./images/Philadelphia_Pennsylvania_USA_Boathouse_Row_at_night_2009.jpg"
+      });
+      break;
+    case 4:
+    case 5:
+    case 6:
+      $("body")
+        .css({
+          backgroundImage: "./images/imagesPhiladelphiaMuseumOfArt2017.jpg"
+        })
+        .attr(alt, "blahblahblah");
+  }
+  console.log(bgHour);
+});
