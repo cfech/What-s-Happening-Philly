@@ -1,12 +1,24 @@
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /*styling for parallax effect*/
 }
 
+/*Styling for parallax effect and rotating image gallery timer animation*/
 body {
   background-image: url("https://www.publicdomainpictures.net/pictures/60000/velka/philadelphia-skyline.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+/*Moved parallax code here to continuity and proper ordering*/
+
+.parallax {
+  /* Set a specific height */
+  /* height: 500px; */
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .mainContent {
@@ -32,7 +44,7 @@ body {
   background: rgba(244, 230, 191, 0.639) !important;
   border-radius: 15px;
 }
-
+/*Title Headings Google Font Styline for h1 and .h1*/
 h1 {
   font-family: "Pacifico", cursive;
   font-size: 400% !important;
@@ -43,7 +55,7 @@ h1 {
 .h1 {
   font-family: "Oswald", sans-serif;
 }
-
+/*Liberty Bell Logo*/
 #libertybell {
   border-radius: 4px;
   padding: 5px;
@@ -58,16 +70,6 @@ h1 {
   background: none;
 }
 
-.parallax {
-  /* Set a specific height */
-  /* height: 500px; */
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 #weatherBox {
   width: 500px;
   height: 200px;
@@ -76,7 +78,7 @@ h1 {
   /* animation: weatherScroll 3s 100;
   animation-direction: alternate-reverse; */
 }
-
+/*demo-1, demo-1 h3 code is for weather box animation*/
 .demo-1 {
   height: 60px;
   width: 500px;

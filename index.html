@@ -7,37 +7,36 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <!--Google Fonts used-->
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <!--Custom Styling for Animations and overriding bootstrap colors-->
     <link rel="stylesheet" href="style.css">
-
-
-    <title>Event Location</title>
+    <title>Philly Event Tracker</title>
 </head>
 
 <body>
     <main class="container">
-
         <nav class="jumbotron justify-content-center" id="navBox">
-            <h1 class="display-4 text-center"><img id="libertybell" src="./images/libertybell.png" alt="Liberty Bell">
+            <!--Liberty Bell LogoKG-->
+            <h1 class="display-4 text-center"><img id="libertybell" src="./images/libertybell.png"
+                    alt="Liberty Bell logo in navy colored outline">
                 What's Happening Philly?</h1>
             <div class="row">
+                <!--JQuery function will add moment.js date hereKG-->
                 <div class="col-sm-12 h1 text-center" id="date"></div>
             </div>
         </nav>
-
-        <div class="row m-2 p-2">
-
-            <!--Searchbox div-->
+        <!--MainContent for the entire page lives under the jumbotron hereKG-->
+        <div class="row m-2 p-2 mainContent">
+            <!--Searchbox divCF-->
             <div class="col-lg-3 col-md-11 searchBox">
-
-                <!--Keyword Search div-->
+                <!--Keyword Search divCF-->
                 <form class="row d-none keywordSearch mt-2 justify-content-center">
                     <input type="text" id="event-search" class="col-7 "><br>
                     <input id="add-city" type="submit" value="" class="col-1 searchButton" ß>
                 </form>
-
-                <!--Start date dive-->
+                <!--Start date diveCF-->
                 <form class="mt-2 input-group">
                     <div class="input-group-prepend">
                         <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
@@ -46,7 +45,7 @@
 
                 </form>
 
-                <!--End date Div -->
+                <!--End date DivCF -->
                 <form class="mt-2 input-group">
                     <div class="input-group-prepend">
                         <i class="fa fa-calendar input-group-text" aria-hidden="true"></i>
@@ -54,17 +53,17 @@
                     <input type="date" id="end-date" class="form-control"><br>
 
                 </form>
-                <!--Error row-->
+                <!--Error rowCF-->
                 <div class="row justify-content-center d-none mt-2" id="errorRow">
                     <p class="errorMessage">*Please select a date</p>
                 </div>
 
-                <!--Go button div-->
+                <!--Go button divCF-->
                 <div class="row justify-content-center">
                     <button id="endBtn" type="submit" class="col-lg-4 searchButton mt-3 col-sm-7"> Go <i
                             class="fa fa-search" aria-hidden="true"></i> </button>
                 </div>
-                <!--Reset Button -->
+                <!--Reset ButtonCF -->
                 <div class="row justify-content-center">
                     <button id="resetBtn" type="submit" class="col-lg-4 searchButton mt-3 col-sm-7">Reset<i
                             class="fa fa-search" aria-hidden="true"></i></button>
@@ -72,22 +71,23 @@
 
             </div>
 
-            <!--Weather area -->
+            <!--Weather areaCF -->
+            <!--WEATHER FORECAST DATA ANIMATION LIVES HEREKG-->
             <div class="col-lg-8 offset-1 weatherBox p-5 col-md-11">
                 <ul class="list-group list-group-horizontal" id="weatherBox"></ul>
             </div>
 
         </div>
 
-        <!--Map area/List Row -->
-        <div class="row m-2 ">
+        <!--Map area/List RowCF -->
+        <div class="row m-2 mainContent">
 
-            <!--Map Div-->
+            <!--Map DivCF-->
             <div class="col-lg-6 m-2 mapBox mr-5 col-md-11" id="mapArea">
                 Map here
             </div>
 
-            <!--List area -->
+            <!--List areaCF -->
             <div class="col-lg-4 offset-1 ml-4 listBox col-md-11">
                 <ol id="listArea">
                 </ol>
@@ -95,8 +95,9 @@
 
         </div>
 
-        <!-- Container element img lives here see CSS. do not move. -->
+        <!-- Parallax rotating images lives here see CSS. do not move this div.KG-->
         <div class="parallax"></div>
+        <!--This div is to dynamically add the images below-->
         <div id="imgGallery">
             <img src="https://commons.wikimedia.org/wiki/File:A651,_Philadelphia_skyline_from_the_Spring_Garden_Street_Bridge,_2018.jpg"
                 alt="philadelphia skyline from spring garden street during the daytime" id="dayTime1" />
@@ -115,11 +116,7 @@
                 alt="philadelphia boathouse row seven house each lit up at nighttime" id="nightTime3" />
             <img src="https://commons.wikimedia.org/wiki/File:Kimmel_Center_cropped.tif"
                 alt="philadelphia kimmel center lit at night" id="nightTime4" />
-
         </div>
-
-
-
         <!--Scripts-->
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqROn-JpUPdoFUbby3NZIYMa4WmIn9w0M&callback=initMap"
@@ -127,10 +124,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="javascript.js"></script>
+        <!--Jquery Functionality for scroll up and our animation when page loadsKG-->
         <script>
             $(document).ready(function () {
-
-
                 $("#navBox").animate({
                     left: 0,
                     opacity: 1

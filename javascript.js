@@ -1,4 +1,4 @@
-// declared vars
+// declared varsCF
 var j = 0;
 var APIKey = "20c488e0a9aff750eabd58301c43b3ce";
 var queryURL =
@@ -8,10 +8,11 @@ var startDate;
 
 itemsArray = [];
 $(document).ready(function() {
-  //Setting Date
-  $("#date").text(moment().format("dddd, MMMM Do"));
+  //Setting DateCF
+  //KATIA BRANCH NOTE-CHANGED MOMENT DATE FORMATKG
+  $("#date").text(moment().format("dddd, MMMM Do YYYY"));
 
-  //reset variables
+  //reset variablesCF
   $("#resetBtn").on("click", function() {
     startDate = "";
     endDate = "";
@@ -23,7 +24,7 @@ $(document).ready(function() {
     $("#errorRow").addClass("d-none");
   });
 
-  //setting date variables and un-hiding search bar
+  //setting date variables and un-hiding search barCF
   $("#endBtn").on("click", function() {
     event.preventDefault();
     startDate = $("#start-date").val();
@@ -39,22 +40,22 @@ $(document).ready(function() {
     }
   });
 
-  // ajax call for weather
+  // ajax call for weatherCF
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
     console.log("TCL: response", response);
-    //creation of weather div
+    //creation of weather divCF
     var weatherDiv = $("<div>").addClass("list-group list-group-horizontal");
 
-    //creation and setting text of locationDiv
+    //creation and setting text of locationDivCF
     var location = response.name;
     console.log("TCL: location", location);
     var locationDiv = $("<li>").addClass("locationDiv list-group-item mr-2");
     locationDiv.text(location);
 
-    //creation and setting text of weatherConditionDiv
+    //creation and setting text of weatherConditionDivCF
     var weatherCondition = response.weather[0].main;
     console.log("TCL: weather", weatherCondition);
     var weatherConditionDiv = $("<h3>").addClass(
@@ -62,21 +63,21 @@ $(document).ready(function() {
     );
     weatherConditionDiv.text("Condition :  " + weatherCondition);
 
-    //creation and setting text of tempDiv
+    //creation and setting text of tempDivCF
     var tempKelvin = response.main.temp;
     var tempF = (tempKelvin - 273.5) * 1.8 + 32;
     console.log("TCL: tempF", tempF);
     var tempDiv = $("<h3>").addClass("tempDiv tempDiv mr-2");
     tempDiv.text("Temp: " + tempF.toFixed(2) + " °F");
 
-    //creation and setting text of humidityDiv
+    //creation and setting text of humidityDivCF
     var humidity = response.main.humidity;
     console.log("TCL: humidity", humidity);
     var humidityDiv = $("<h3>").addClass("humidityDiv demo-1 mr-2");
     humidityDiv.text("Humidity: " + humidity + "%");
 
-    //appending all divs to the page
-    //Find here****************
+    //appending all divs to the pageCFDELETE THIS COMMENT
+    //this string is for the weather dashboard animationKG
     var TotalWeatherDataStr = [
       "Condition :  " +
         weatherCondition +
@@ -88,7 +89,8 @@ $(document).ready(function() {
         humidity +
         "%"
     ];
-    //   weatherDiv.append(weatherConditionDiv, tempDiv, humidityDiv);
+    //  replaced weatherDiv.append(weatherConditionDiv, tempDiv, humidityDiv);DELETE THIS COMMENTKG
+    //THIS CODE IS FOR WEATHER DASHBOARD ANIMATION
     var weatherTickerDiv = $("<h3>").addClass(
       "weatherTicker text-dark demo-1 mr-2"
     );
@@ -102,7 +104,7 @@ $(document).ready(function() {
   // var marker = new google.maps.Marker({
   //   position: myLatLng,
   //   map: map,
-  // });
+  // });CF
   var globalMap;
   function initMap() {
     var myLatLng = { lat: 39.952, lng: -75.165 };
@@ -116,7 +118,7 @@ $(document).ready(function() {
 
   initMap();
 
-  //Call ajax function on clik of add-city button
+  //Call ajax function on clik of add-city buttonCF
   $("#add-city").on("click", function() {
     event.preventDefault();
     $("#listArea").empty();
@@ -185,9 +187,9 @@ $(document).ready(function() {
         console.log("TCL: listItem", listItem);
         $("#listArea").append(listItem);
 
-        //map markers
+        //map markersCF
 
-        // get details
+        // get detailsCF
       }
     });
   });
@@ -203,7 +205,7 @@ $(document).ready(function() {
       map: globalMap
     });
 
-    //function for clicking on the marker
+    //function for clicking on the markerCF
     var dataName = $(this).attr("data-name");
     var infoWindow = new google.maps.InfoWindow({
       content: dataName
@@ -227,4 +229,4 @@ $(document).ready(function() {
 //   $(document).ready(function(){
 //      Run our swapImages() function every 10800secs= every 3 hours daytime to dusk to nighttime
 //     setInterval('swapImages()', 10800);
-//   }
+//   }KG
