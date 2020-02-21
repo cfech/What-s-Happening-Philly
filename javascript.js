@@ -144,7 +144,7 @@ $(document).ready(function() {
           parseFloat(listItems[i]._embedded.venues[0].location.latitude);
         console.log("TCL: latitude", latitude);
 
-        var listItem = $("<li>");
+        var listItem = $("<li>").addClass("pb-2")
         listItem.attr("data-lat", latitude);
         listItem.attr("data-lon", longitude);
 
@@ -228,3 +228,7 @@ $(document).ready(function() {
 //      Run our swapImages() function every 10800secs= every 3 hours daytime to dusk to nighttime
 //     setInterval('swapImages()', 10800);
 //   }
+// <---CZ-->
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
