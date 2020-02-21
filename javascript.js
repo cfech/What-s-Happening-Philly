@@ -163,7 +163,7 @@ $(document).ready(function () {
                 var date = listItems[i].dates.start.localDate;
                 console.log("TCL: date", date);
                 var dateDiv = $("<div>").addClass("dateDiv");
-                dateDiv.text("Date:  " + date);
+                dateDiv.text("Date:  " + moment(date, "YYYY-MM-DD").format("MMM Do YYYY"));
 
                 var time = listItems[i].dates.start.localTime;
                 console.log("TCL: time", time);
@@ -180,7 +180,7 @@ $(document).ready(function () {
                     "<p>" +
                     itemName +
                     "</p><p> Date: " +
-                    date +
+                    moment(date, "YYYY-MM-DD").format("MMM Do YYYY") +
                     "   Start Time: " +
                     moment(time, "H").format("hh:mmA") +
                     "</p><p> Venue: " +
