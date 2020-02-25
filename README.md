@@ -1,5 +1,6 @@
 # **What's Happening Philly**
 Link to website:(https://cfech.github.io/What-s-Happening-Philly/)
+This was a group project, I was personally responsible for all the backend capabilities as well as using bootstrap to make the application responsive
 
 What's Happening Philly is a web based application that allows users to search for various events taking place in Philadelphia. The user is able to search for specific events or general categories by keyword, within a specific time frame. Once a search has been initiated, a list will populate providing all the events that match the users search criteria. The event list provides useful information for the user about the event such as the name of the event, date ,start time and location. 
 The application was built using HTML, CSS, JavaScript & jQuery. We also utilized several APIs, Bootstrap 4, Moment.js and FontAwesome in the web development processes. The links are provided below; 
