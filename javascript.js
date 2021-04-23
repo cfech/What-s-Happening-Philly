@@ -7,14 +7,14 @@ var queryURL =
 var startDate;
 var marker;
 
-itemsArray = [];
-$(document).ready(function() {
+let itemsArray = [];
+$(document).ready(function () {
   //Setting DateCF
   //KATIA BRANCH NOTE-CHANGED MOMENT DATE FORMATKG
   $("#date").text(moment().format("dddd, MMMM Do YYYY"));
 
   //reset variablesCF
-  $("#resetBtn").on("click", function() {
+  $("#resetBtn").on("click", function () {
     startDate = "";
     endDate = "";
     $(".keywordSearch").addClass("d-none");
@@ -27,7 +27,7 @@ $(document).ready(function() {
   });
 
   //setting date variables and un-hiding search barCF
-  $("#endBtn").on("click", function() {
+  $("#endBtn").on("click", function () {
     event.preventDefault();
     startDate = $("#start-date").val();
     console.log(startDate);
@@ -46,7 +46,7 @@ $(document).ready(function() {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log("TCL: response", response);
     //creation of weather divCF
     var weatherDiv = $("<div>").addClass("list-group list-group-vertical");
@@ -96,18 +96,24 @@ $(document).ready(function() {
   function initMap() {
     var myLatLng = { lat: 39.952, lng: -75.165 };
     var locationLatLong = { lat: 39.952, lng: -75.165 };
-    var map = new google.maps.Map(document.getElementById("mapArea"), {
+    map = new google.maps.Map(document.getElementById("mapArea"), {
       zoom: 11,
       center: myLatLng
     });
     globalMap = map;
   }
 
-  initMap();
+  setTimeout(function () { 
+    console.log("map")
+    initMap(); 
+  }, 1000);
+  
 
-  //Call ajax function on clik of add-city buttonCF
-  $("#add-city").on("click", function() {
+  //Call ajax function on click of add-city buttonCF
+  $("#add-city").on("click", function () {
+
     event.preventDefault();
+    console.log("hello")
     $("#listArea").empty();
 
     var keyword = $("#event-search").val();
@@ -116,7 +122,7 @@ $(document).ready(function() {
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
       console.log(response);
       console.log(queryURL);
       var listItems = response._embedded.events;
@@ -163,13 +169,13 @@ $(document).ready(function() {
         listItem.attr(
           "data-name",
           "<p>" +
-            itemName +
-            "</p><p> Date: " +
-            moment(date, "YYYY-MM-DD").format("MMM Do YYYY") +
-            "   Start Time: " +
-            moment(time, "H").format("hh:mmA") +
-            "</p><p> Venue: " +
-            venue
+          itemName +
+          "</p><p> Date: " +
+          moment(date, "YYYY-MM-DD").format("MMM Do YYYY") +
+          "   Start Time: " +
+          moment(time, "H").format("hh:mmA") +
+          "</p><p> Venue: " +
+          venue
         );
 
         listItem.append(nameDiv, dateDiv, timeDiv, venueDiv);
@@ -183,7 +189,7 @@ $(document).ready(function() {
     });
   });
 
-  $(document).on("click", "li", function() {
+  $(document).on("click", "li", function () {
     console.log("clicked");
     console.log(marker);
     if (marker !== undefined) {
@@ -203,7 +209,7 @@ $(document).ready(function() {
     var infoWindow = new google.maps.InfoWindow({
       content: dataName
     });
-    google.maps.event.addListener(marker, "click", function() {
+    google.maps.event.addListener(marker, "click", function () {
       console.log("clicked");
       infoWindow.open(globalMap, marker);
     });
@@ -212,7 +218,7 @@ $(document).ready(function() {
 
 //deleted swap images functions did not workKG//
 //Functions to rotate bg images throughout the day
-$(document).ready(function() {
+$(document).ready(function () {
   var bgHour = parseInt(moment().format("k"));
   switch (bgHour) {
     case 1:
@@ -289,6 +295,6 @@ $(document).ready(function() {
   console.log(bgHour);
 });
 // <---CZ-->
-$(function() {
+$(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
