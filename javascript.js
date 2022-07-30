@@ -1,6 +1,6 @@
 // declared varsCF
 var j = 0;
-var APIKey = "20c488e0a9aff750eabd58301c43b3ce";
+var APIKey = "";
 var queryURL =
   "https://api.openweathermap.org/data/2.5/weather?q=philadelphia&appid=" +
   APIKey;
